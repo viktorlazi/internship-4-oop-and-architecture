@@ -1,5 +1,5 @@
 
-namespace Game.Data.Models.PlayerClass
+namespace Game.Data.Models.Entity.PlayerClass
 {
     public class Mage:Player
     {      
@@ -8,7 +8,7 @@ namespace Game.Data.Models.PlayerClass
         }
         public int Mana {get;set;}
         public bool Has2Lifes {get;set;} = true;
-        public override double Attack(){
+        public override int Attack(){
             return 0;
         }
     }

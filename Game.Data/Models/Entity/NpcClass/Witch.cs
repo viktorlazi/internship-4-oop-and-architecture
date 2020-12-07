@@ -1,5 +1,5 @@
 
-namespace Game.Data.Models.NpcClass
+namespace Game.Data.Models.Entity.NpcClass
 {
     public class Witch:Npc
     {      
@@ -7,7 +7,7 @@ namespace Game.Data.Models.NpcClass
             
         }
         
-        public override double Attack(){
+        public override int Attack(){
             return 0;
         }
     }

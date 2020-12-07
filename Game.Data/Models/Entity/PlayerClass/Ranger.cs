@@ -1,5 +1,5 @@
 
-namespace Game.Data.Models.PlayerClass
+namespace Game.Data.Models.Entity.PlayerClass
 {
     public class Ranger:Player
     {      
@@ -9,7 +9,7 @@ namespace Game.Data.Models.PlayerClass
         public double CriticalChance {get;set;} 
         public double StunChance {get;set;}
 
-        public override double Attack(){
+        public override int Attack(){
             return 0;
         }
 

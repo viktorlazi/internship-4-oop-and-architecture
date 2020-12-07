@@ -1,5 +1,5 @@
 
-namespace Game.Data.Models
+namespace Game.Data.Models.Entity
 {
     public class Npc : Entity
     {      
