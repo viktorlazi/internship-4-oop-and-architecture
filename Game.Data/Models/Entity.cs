@@ -6,8 +6,8 @@ namespace Game.Data.Models
         public string Name {get;set;}
         public int Hp {get;set;}
         public int Damage {get;set;}
-        public void Attack(){
-
+        public virtual double Attack(){
+            return 0;
         }
     }
 }
