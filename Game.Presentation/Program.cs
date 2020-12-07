@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.Domain.GameCycle;
 
 namespace Game.Presentation
 {
@@ -6,7 +7,7 @@ namespace Game.Presentation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Start.WelcomeScreen();
         }
     }
 }
