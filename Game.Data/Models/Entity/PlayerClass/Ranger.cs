@@ -31,5 +31,10 @@ namespace Game.Data.Models.Entity.PlayerClass
                 "\t-Chance for a critical attack\n" +
                 "\t-Chance to stun on attack\n";
         }
+
+        public override string ToString()
+        {
+            return "Ranger";
+        }
     }
 }

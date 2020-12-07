@@ -20,6 +20,11 @@ namespace Game.Data.Models.Entity.PlayerClass
                 "\t-Uses mana for spells\n" +
                 "\t-Special ability: Ressurect, can rise back from the dead once";
         }
+
+        public override string ToString()
+        {
+            return "Mage";
+        }
     }
     
 }

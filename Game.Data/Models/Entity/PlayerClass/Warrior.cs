@@ -22,5 +22,10 @@ namespace Game.Data.Models.Entity.PlayerClass
                 
         }
         
+
+        public override string ToString()
+        {
+            return "Warrior";
+        }
     }
 }

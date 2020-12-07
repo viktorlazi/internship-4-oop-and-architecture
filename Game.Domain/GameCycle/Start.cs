@@ -29,6 +29,7 @@ namespace Game.Domain.GameCycle{
             );
 
             UserInput.EnterToContinue();
+            Console.Clear();
 
             System.Console.WriteLine("Warrior");
             DisplayText.ColorLine(
@@ -52,6 +53,11 @@ namespace Game.Domain.GameCycle{
 
             PlayerData.Player = ChooseYourDestiny();
             
+            Console.Clear();
+
+            System.Console.WriteLine("Very well, " + PlayerData.Player);
+            System.Console.WriteLine("I will stay here where it's safe.");
+            System.Console.WriteLine("You go kill em!");
 
         }
         public static Player ChooseYourDestiny(){
