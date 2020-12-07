@@ -5,6 +5,7 @@ namespace Game.Data.Models.Entity.PlayerClass
     {      
         public Warrior(){
             Hp=DefaultStartValues.WarriorHp;
+            Damage = DefaultStartValues.WarriorDmg;
         }
 
         public override int Attack(){

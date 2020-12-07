@@ -5,9 +5,11 @@ namespace Game.Data.Models.Entity.PlayerClass
     {      
         public Ranger(){
             Hp=DefaultStartValues.RangerHp;
+            Damage=DefaultStartValues.RangerDmg;
             CriticalChance=DefaultStartValues.RangerCritChance;
-            StunChance=DefaultStartValues.RangerStunChance;
+            StunChance=DefaultStartValues.RangerStunChance;            
         }
+
         public double CriticalChance {get;set;} 
         public double StunChance {get;set;}
 
@@ -19,6 +21,7 @@ namespace Game.Data.Models.Entity.PlayerClass
             return false;
         }
         bool CriticalAttack(){
+            Damage=DefaultStartValues.RangerCritDmg;
             return false;
         }
         

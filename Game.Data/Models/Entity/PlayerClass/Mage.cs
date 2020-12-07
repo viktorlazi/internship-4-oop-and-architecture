@@ -6,6 +6,7 @@ namespace Game.Data.Models.Entity.PlayerClass
         public Mage(){
             Hp=DefaultStartValues.MageHp;
             Mana=DefaultStartValues.MageMana;
+            Damage=DefaultStartValues.MageDmg;
         }
         public int Mana {get;set;}
         public bool Has2Lifes {get;set;} = true;
