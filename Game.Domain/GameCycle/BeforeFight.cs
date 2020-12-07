@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Game.Domain.Helper.GameCycles{
+namespace Game.Domain.GameCycle{
     public static class BeforeFight{
         public static void ShowStats(){
             
