@@ -1,10 +1,10 @@
-
+using Game.Data.Global;
 namespace Game.Data.Models.Entity.PlayerClass
 {
     public class Warrior:Player
     {      
         public Warrior(){
-            
+            Hp=DefaultStartValues.WarriorHp;
         }
 
         public override int Attack(){

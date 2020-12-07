@@ -1,10 +1,11 @@
-
+using Game.Data.Global;
 namespace Game.Data.Models.Entity.PlayerClass
 {
     public class Mage:Player
     {      
         public Mage(){
-            
+            Hp=DefaultStartValues.MageHp;
+            Mana=DefaultStartValues.MageMana;
         }
         public int Mana {get;set;}
         public bool Has2Lifes {get;set;} = true;

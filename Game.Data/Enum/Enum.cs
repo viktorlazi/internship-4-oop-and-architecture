@@ -1,7 +1,8 @@
 namespace Game.Data.Enum{
-    public enum Napad{
+    public enum Attack{
         DirektanNapad,
         NapadSBoka,
         Protunapad
     }
+
 }

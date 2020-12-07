@@ -1,4 +1,7 @@
 using Game.Domain.Helper;
+using Game.Data.Global;
+using Game.Data.Models.Entity;
+using Game.Data.Models.Entity.PlayerClass;
 using System;
 
 namespace Game.Domain.GameCycle{
@@ -45,9 +48,38 @@ namespace Game.Domain.GameCycle{
                 ConsoleColor.Yellow
             );
 
-        }
-        public static void PromptPlayer(){
+            DisplayText.DashWall();
+
+            PlayerData.Player = ChooseYourDestiny();
             
+
         }
+        public static Player ChooseYourDestiny(){
+            while(true){
+                System.Console.WriteLine("Choose your destiny!");
+                System.Console.Write("I would like to be a: ");
+                var option = Console.ReadLine();
+
+                switch(option){
+                    case "warrior":
+                        return new Warrior();
+                    case "Warrior":
+                        return new Warrior();
+                    case "mage":
+                        return new Mage();
+                    case "Mage":
+                        return new Mage();
+                    case "ranger":
+                        return new Ranger();
+                    case "Ranger":
+                        return new Ranger();
+                }
+
+                DisplayText.ColorLine(option + " is not a valid option", ConsoleColor.Magenta);
+                System.Console.WriteLine();
+            }
+        }
+
+
     }
 }

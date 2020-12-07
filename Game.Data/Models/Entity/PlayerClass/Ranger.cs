@@ -1,10 +1,12 @@
-
+using Game.Data.Global;
 namespace Game.Data.Models.Entity.PlayerClass
 {
     public class Ranger:Player
     {      
         public Ranger(){
-
+            Hp=DefaultStartValues.RangerHp;
+            CriticalChance=DefaultStartValues.RangerCritChance;
+            StunChance=DefaultStartValues.RangerStunChance;
         }
         public double CriticalChance {get;set;} 
         public double StunChance {get;set;}
