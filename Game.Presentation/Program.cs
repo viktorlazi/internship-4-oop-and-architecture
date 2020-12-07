@@ -8,6 +8,7 @@ namespace Game.Presentation
         static void Main(string[] args)
         {
             Start.WelcomeScreen();
+            Console.ReadLine();
         }
     }
 }

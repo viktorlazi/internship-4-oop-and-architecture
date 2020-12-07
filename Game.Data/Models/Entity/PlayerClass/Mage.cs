@@ -11,5 +11,13 @@ namespace Game.Data.Models.Entity.PlayerClass
         public override int Attack(){
             return 0;
         }
+
+        public static string PrintPowers(){
+            return "Power of mage is the power of energies.\n" +
+                "\t-Less HP, but more damage\n" +
+                "\t-Uses mana for spells\n" +
+                "\t-Special ability: Ressurect, can rise back from the dead once";
+        }
     }
+    
 }

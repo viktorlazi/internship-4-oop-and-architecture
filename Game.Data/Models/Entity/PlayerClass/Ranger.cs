@@ -20,5 +20,11 @@ namespace Game.Data.Models.Entity.PlayerClass
             return false;
         }
         
+        public static string PrintPowers(){
+            return "Power of ranger is power of the wild.\n" +
+                "\t-Normal HP and damage\n" +
+                "\t-Chance for a critical attack\n" +
+                "\t-Chance to stun on attack\n";
+        }
     }
 }

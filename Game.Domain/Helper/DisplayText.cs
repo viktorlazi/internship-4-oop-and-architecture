@@ -4,24 +4,40 @@ namespace Game.Domain.Helper{
         public static void Color(string text, ConsoleColor color){
             Console.ForegroundColor = color;
             System.Console.Write(text);
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ResetColor();
         }
-        public static void ColorLn(string text, ConsoleColor color){
+        public static void ColorLine(string text, ConsoleColor color){
             Console.ForegroundColor = color;
             System.Console.WriteLine(text);
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ResetColor();
         }
         public static void Color(string text, ConsoleColor color, ConsoleColor backColor){
             Console.ForegroundColor = color;
             Console.BackgroundColor = backColor;
             System.Console.Write(text);
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ResetColor();
         }
-        public static void ColorLn(string text, ConsoleColor color, ConsoleColor backColor){
+        public static void ColorLine(string text, ConsoleColor color, ConsoleColor backColor){
             Console.ForegroundColor = color;
             Console.BackgroundColor = backColor;
             System.Console.WriteLine(text);
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ResetColor();
+        }
+
+        public static void DashWall(){
+            // 32 ih je
+            System.Console.WriteLine("--------------------------------");
+        }
+        public static void DashWall(ConsoleColor color){
+            Console.ForegroundColor = color;
+            System.Console.WriteLine("--------------------------------");
+            Console.ResetColor();
+        }
+        public static void DashWall(ConsoleColor color, ConsoleColor backColor){
+            Console.ForegroundColor = color;
+            Console.BackgroundColor = backColor;
+            System.Console.WriteLine("--------------------------------");
+            Console.ResetColor();
         }
 
     }
