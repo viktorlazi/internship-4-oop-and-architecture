@@ -46,15 +46,17 @@ namespace Game.Domain.Helper{
 
         public static void PlayerStats(Player player){
             foreach(var stat in player.Stats()){
-              DisplayText.Color(stat.Item1, stat.Item2);
-              DisplayText.ColorLine(stat.Item3.ToString(), stat.Item2);
+                System.Console.Write("\t");
+                DisplayText.Color(stat.Item1, stat.Item2);
+                System.Console.Write(" - ");
+                DisplayText.ColorLine(stat.Item3.ToString(), stat.Item2);
             }
         }
 
         public static void EnemiesInOrder(List<Npc> enemies){
             foreach(var enemy in enemies){
+                System.Console.Write(" -> ");
                 Color(enemy.ToString(), enemy.DisplayColor);
-                System.Console.Write(" - ");
             }
         }
 

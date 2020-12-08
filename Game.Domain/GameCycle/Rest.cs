@@ -5,10 +5,11 @@ using Game.Data.Global;
 namespace Game.Domain.GameCycle{
     public static class Rest{
         public static void Screen(){
+            DisplayText.DashWall();
             DisplayText.PlayerStats((PlayerData.Player));
             DisplayText.DashWall();
 
-            System.Console.WriteLine("Your eneies:");
+            System.Console.WriteLine("Your enemies: ");
             DisplayText.EnemiesInOrder(DungeonData.Npcs);
             
 
