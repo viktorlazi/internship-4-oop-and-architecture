@@ -7,6 +7,7 @@ namespace Game.Data.Models.Entity.PlayerClass
             Hp=DefaultStartValues.MageHp;
             Mana=DefaultStartValues.MageMana;
             Damage=DefaultStartValues.MageDmg;
+            DisplayColor=DefaultStartValues.MageColor;
         }
         public int Mana {get;set;}
         public bool Has2Lifes {get;set;} = true;
@@ -20,11 +21,11 @@ namespace Game.Data.Models.Entity.PlayerClass
                 "\t-Uses mana for spells\n" +
                 "\t-Special ability: Ressurect, can rise back from the dead once";
         }
-
         public override string ToString()
         {
             return "Mage";
         }
+
     }
     
 }

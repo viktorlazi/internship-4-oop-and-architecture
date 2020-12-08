@@ -9,11 +9,7 @@ namespace Game.Domain
     {
         static void Main(string[] args)
         {
-            Start.GenerateEnemies();
-            for(int i = 0; i< 10;i++){
-                System.Console.WriteLine(DungeonData.Entities[i].ToString());
-
-            }
+            
 
             Console.ReadLine();
         }

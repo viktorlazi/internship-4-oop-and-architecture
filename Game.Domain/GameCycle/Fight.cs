@@ -5,8 +5,6 @@ namespace Game.Domain.GameCycle{
         public static bool DoesPlayerGoFirst(){
             return true;
         }
-
-
         public static void Screen(){
 
         }

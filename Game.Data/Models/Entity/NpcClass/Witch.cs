@@ -6,6 +6,7 @@ namespace Game.Data.Models.Entity.NpcClass
         public Witch(){
             Hp = DefaultStartValues.WitchHp;
             Damage = DefaultStartValues.WitchDmg;
+            DisplayColor=DefaultStartValues.WitchColor;
         }
         
         public override int Attack(){

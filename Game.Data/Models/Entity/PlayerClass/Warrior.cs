@@ -6,6 +6,7 @@ namespace Game.Data.Models.Entity.PlayerClass
         public Warrior(){
             Hp=DefaultStartValues.WarriorHp;
             Damage = DefaultStartValues.WarriorDmg;
+            DisplayColor=DefaultStartValues.WarriorColor;
         }
 
         public override int Attack(){

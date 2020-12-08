@@ -1,4 +1,6 @@
 using System;
+using Game.Data.Models.Entity;
+using System.Collections.Generic;
 namespace Game.Domain.Helper{
     public static class DisplayText{
         public static void Color(string text, ConsoleColor color){
@@ -38,6 +40,20 @@ namespace Game.Domain.Helper{
             Console.BackgroundColor = backColor;
             System.Console.WriteLine("--------------------------------");
             Console.ResetColor();
+        }
+
+
+        public static void PlayerStats(Player player){
+            DisplayText.Color("HP: ", ConsoleColor.Red);System.Console.WriteLine(player.Hp);
+            DisplayText.Color("Damage: ", ConsoleColor.Yellow);System.Console.WriteLine(player.Damage);
+            
+        }
+
+        public static void EnemiesInOrder(List<Npc> enemies){
+            foreach(var enemy in enemies){
+                Color(enemy.ToString(), enemy.DisplayColor);
+                System.Console.Write(" - ");
+            }
         }
 
     }

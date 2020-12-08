@@ -6,6 +6,7 @@ namespace Game.Data.Models.Entity.NpcClass
         public Goblin(){
             Hp = DefaultStartValues.GoblinHp;
             Damage = DefaultStartValues.GoblinDmg;
+            DisplayColor=DefaultStartValues.GoblinColor;
         }
         
         public override int Attack(){

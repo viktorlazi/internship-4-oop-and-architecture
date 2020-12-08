@@ -34,19 +34,19 @@ namespace Game.Domain.GameCycle{
             System.Console.WriteLine("Warrior");
             DisplayText.ColorLine(
                 Game.Data.Models.Entity.PlayerClass.Warrior.PrintPowers(),
-                ConsoleColor.Red
+                DefaultStartValues.WarriorColor
             );
 
             System.Console.WriteLine("Mage");
             DisplayText.ColorLine(
                 Game.Data.Models.Entity.PlayerClass.Mage.PrintPowers(),
-                ConsoleColor.Blue
+                DefaultStartValues.MageColor
             );
 
             System.Console.WriteLine("Ranger");
             DisplayText.ColorLine(
                 Game.Data.Models.Entity.PlayerClass.Ranger.PrintPowers(),
-                ConsoleColor.Yellow
+                DefaultStartValues.RangerColor
             );
 
             DisplayText.DashWall();
@@ -90,7 +90,7 @@ namespace Game.Domain.GameCycle{
         }
         public static void GenerateEnemies(){
             for(var i = 0; i <10;i++){
-                DungeonData.Entities.Add(Npc.RandomSpawn());
+                DungeonData.Npcs.Add(Npc.RandomSpawn());
             }
         }
 

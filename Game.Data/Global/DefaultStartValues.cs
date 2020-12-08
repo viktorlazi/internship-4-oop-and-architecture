@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 namespace Game.Data.Global
 {
     public static class DefaultStartValues
@@ -36,6 +37,15 @@ namespace Game.Data.Global
             {Enum.Npc.Brute, BruteSpawnChance},
             {Enum.Npc.Witch, WitchSpawnChance} 
         };
+
+
+        public static ConsoleColor GoblinColor {get;} = ConsoleColor.Green;
+        public static ConsoleColor BruteColor {get;} = ConsoleColor.Magenta;
+        public static ConsoleColor WitchColor {get;} = ConsoleColor.DarkYellow;
+
+        public static ConsoleColor WarriorColor {get;} = ConsoleColor.Red;
+        public static ConsoleColor RangerColor {get;} = ConsoleColor.Yellow;
+        public static ConsoleColor MageColor {get;} = ConsoleColor.Blue;
 
 
     }

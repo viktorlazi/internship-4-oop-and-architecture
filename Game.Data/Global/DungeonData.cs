@@ -8,6 +8,7 @@ namespace Game.Data.Global
     public static class DungeonData
     {      
         public static List<Entity> Entities = new List<Entity>();
+        public static List<Npc> Npcs = new List<Npc>();
         
         public static string AllEntitiesToString(){
             var result = "";

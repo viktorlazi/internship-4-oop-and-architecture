@@ -5,6 +5,8 @@ namespace Game.Data.Models.Entity
 {
     public class Npc : Entity
     {      
+
+        
         public static Npc RandomSpawn(){
             var random = new Random();
             int randomNumber = random.Next(0,100);

@@ -7,7 +7,8 @@ namespace Game.Data.Models.Entity.PlayerClass
             Hp=DefaultStartValues.RangerHp;
             Damage=DefaultStartValues.RangerDmg;
             CriticalChance=DefaultStartValues.RangerCritChance;
-            StunChance=DefaultStartValues.RangerStunChance;            
+            StunChance=DefaultStartValues.RangerStunChance;      
+            DisplayColor=DefaultStartValues.RangerColor;      
         }
 
         public double CriticalChance {get;set;} 
