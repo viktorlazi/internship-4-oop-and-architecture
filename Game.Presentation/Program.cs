@@ -11,6 +11,7 @@ namespace Game.Presentation
             
             while(!End.GameEnded){
                 Rest.Screen();
+                Walk.Screen();
                 Fight.Screen();
             }
 

@@ -2,6 +2,7 @@ using System;
 using Game.Data.Models.Entity;
 using Game.Data.Models.Entity.PlayerClass;
 using System.Collections.Generic;
+using Game.Data.Global;
 namespace Game.Domain.Helper{
     public static class DisplayText{
         public static void Color(string text, ConsoleColor color){
@@ -59,6 +60,15 @@ namespace Game.Domain.Helper{
                 Color(enemy.ToString(), enemy.DisplayColor);
             }
         }
+
+        public static void PrintDungeon(int playerPosition){
+            Console.Clear();
+            DungeonData.Visual = DungeonData.Visual.Remove(playerPosition, 1);            
+            DungeonData.Visual = DungeonData.Visual.Insert(playerPosition, "O");
+            System.Console.WriteLine(DungeonData.Visual);
+        }
+
+        
 
     }
 }

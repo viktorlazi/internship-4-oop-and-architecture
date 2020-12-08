@@ -9,6 +9,14 @@ namespace Game.Data.Enum{
         Goblin,
         Brute,
         Witch
+    
     }
 
+    public enum Direction{
+        Up,
+        Down,
+        Left,
+        Right,
+        NoDirection
+    }
 }

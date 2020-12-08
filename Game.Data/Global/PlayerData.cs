@@ -6,8 +6,7 @@ namespace Game.Data.Global
 {
     public static class PlayerData
     {      
-        public static Player Player{get;set;}
-        
+        public static Player Player1{get;set;}
         
 
     }

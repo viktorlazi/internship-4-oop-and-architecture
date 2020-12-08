@@ -51,11 +51,11 @@ namespace Game.Domain.GameCycle{
 
             DisplayText.DashWall();
 
-            PlayerData.Player = ChooseYourDestiny();
+            PlayerData.Player1 = ChooseYourDestiny();
             
             Console.Clear();
 
-            System.Console.WriteLine("Very well, " + PlayerData.Player);
+            System.Console.WriteLine("Very well, " + PlayerData.Player1);
             System.Console.WriteLine("Good luck!");
 
             UserInput.EnterToContinue();

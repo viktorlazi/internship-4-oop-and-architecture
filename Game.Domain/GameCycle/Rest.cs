@@ -6,7 +6,7 @@ namespace Game.Domain.GameCycle{
     public static class Rest{
         public static void Screen(){
             DisplayText.DashWall();
-            DisplayText.PlayerStats((PlayerData.Player));
+            DisplayText.PlayerStats((PlayerData.Player1));
             DisplayText.DashWall();
 
             System.Console.WriteLine("Your enemies: ");

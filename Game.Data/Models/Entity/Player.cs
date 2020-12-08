@@ -4,8 +4,10 @@ namespace Game.Data.Models.Entity
 {
     public class Player : Entity
     {      
-        public static int Xp {get;set;} = 0;
-        public static int Level {get;set;} = 1;
+        public int Xp {get;set;} = 0;
+        public int Level {get;set;} = 1;
+
+        public int Position{get;set;} = 16;
         
 
         public virtual List<Tuple<string, ConsoleColor, int>> Stats(){

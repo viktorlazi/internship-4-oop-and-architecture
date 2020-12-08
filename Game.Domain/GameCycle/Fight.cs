@@ -8,5 +8,7 @@ namespace Game.Domain.GameCycle{
         public static void Screen(){
 
         }
+
+        
     }
 }
