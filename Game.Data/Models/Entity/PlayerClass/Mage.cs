@@ -1,4 +1,6 @@
 using Game.Data.Global;
+using System;
+using System.Collections.Generic;
 namespace Game.Data.Models.Entity.PlayerClass
 {
     public class Mage:Player
@@ -25,6 +27,15 @@ namespace Game.Data.Models.Entity.PlayerClass
         {
             return "Mage";
         }
+
+        public override List<Tuple<string, ConsoleColor, int>> Stats(){
+            var Stats = base.Stats();
+            Stats.Add(new Tuple<string, ConsoleColor, int>("Mana", System.ConsoleColor.Blue, Mana));
+
+            return Stats;
+        }
+
+        
 
     }
     

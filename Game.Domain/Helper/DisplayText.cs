@@ -1,5 +1,6 @@
 using System;
 using Game.Data.Models.Entity;
+using Game.Data.Models.Entity.PlayerClass;
 using System.Collections.Generic;
 namespace Game.Domain.Helper{
     public static class DisplayText{
@@ -44,9 +45,10 @@ namespace Game.Domain.Helper{
 
 
         public static void PlayerStats(Player player){
-            DisplayText.Color("HP: ", ConsoleColor.Red);System.Console.WriteLine(player.Hp);
-            DisplayText.Color("Damage: ", ConsoleColor.Yellow);System.Console.WriteLine(player.Damage);
-            
+            foreach(var stat in player.Stats()){
+              DisplayText.Color(stat.Item1, stat.Item2);
+              DisplayText.ColorLine(stat.Item3.ToString(), stat.Item2);
+            }
         }
 
         public static void EnemiesInOrder(List<Npc> enemies){
