@@ -9,7 +9,7 @@ namespace Game.Presentation
         {
             Start.WelcomeScreen();
             
-            while(!Rest.GameEnded){
+            while(!End.GameEnded){
                 Rest.Screen();
                 Fight.Screen();
             }
