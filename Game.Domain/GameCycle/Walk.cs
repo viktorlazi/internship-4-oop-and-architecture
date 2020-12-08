@@ -4,11 +4,12 @@ using System;
 using Game.Data.Global;
 using Game.Data.Enum;
 
+
 namespace Game.Domain.GameCycle{
     public static class Walk{
         public static void Screen(){
 
-            while(true){
+            while(!InEnemyLine()){
                 DisplayText.PrintDungeon(PlayerData.Player1.Position);
                 var OvajJezikJeRetardiran = PlayerData.Player1.Position;
                 switch(UserInput.ReadDirection()){
@@ -18,8 +19,24 @@ namespace Game.Domain.GameCycle{
                     case Direction.Left: MoveAround.Left(ref OvajJezikJeRetardiran, ref DungeonData.Visual); break;
                 }
                 PlayerData.Player1.Position = OvajJezikJeRetardiran;
-
             }
+
+            DisplayText.PrintDungeon(PlayerData.Player1.Position);
+            System.Console.WriteLine("An enemy is attacking you! Quickly prepare for battle!");
+
+            UserInput.EnterToContinue();
+        }
+
+
+        public static bool InEnemyLine(){
+            var pos = PlayerData.Player1.Position;
+
+            foreach(var enemyLine in DungeonData.EnemyLines){
+                if(pos >= 14*enemyLine){
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

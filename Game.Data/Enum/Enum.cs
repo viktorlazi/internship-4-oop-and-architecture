@@ -19,4 +19,6 @@ namespace Game.Data.Enum{
         Right,
         NoDirection
     }
+
+   
 }

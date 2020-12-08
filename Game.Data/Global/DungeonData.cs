@@ -11,6 +11,10 @@ namespace Game.Data.Global
         public static List<Entity> Entities = new List<Entity>();
         public static List<Npc> Npcs = new List<Npc>();
 
+        public static List<int> EnemyLines = new List<int> (){
+            4,6,8,10,12,14,16,18,20,22
+        };
+
         public static String Visual = new String(
 
         //14x24
@@ -35,8 +39,8 @@ namespace Game.Data.Global
         "# X #$%$#$$$#\n"+
         "#      %%%% #\n"+
         "##$$  X     #\n"+
-        "# $$      X #\n"+
-        "########## ##\n"+
+        "# $$        #\n"+
+        "##########X##\n"+
         "########## ##\n"
         );
 
