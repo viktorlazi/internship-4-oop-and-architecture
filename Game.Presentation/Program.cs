@@ -8,6 +8,14 @@ namespace Game.Presentation
         static void Main(string[] args)
         {
             Start.WelcomeScreen();
+            
+            while(!Rest.GameEnded){
+                Rest.Screen();
+                Fight.Screen();
+            }
+
+            End.Screen();
+
             Console.ReadLine();
         }
     }

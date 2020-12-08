@@ -88,12 +88,10 @@ namespace Game.Domain.GameCycle{
                 System.Console.WriteLine();
             }
         }
-
         public static void GenerateEnemies(){
             for(var i = 0; i <10;i++){
                 DungeonData.Entities.Add(Npc.RandomSpawn());
             }
-            DungeonData.AllEntitiesToString();
         }
 
     }
