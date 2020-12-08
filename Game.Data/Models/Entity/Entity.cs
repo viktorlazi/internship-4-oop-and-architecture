@@ -10,5 +10,9 @@ namespace Game.Data.Models.Entity
         public virtual int Attack(){
             return 0;
         }
+
+        public override string ToString(){
+            return "Entity";
+        }
     }
 }

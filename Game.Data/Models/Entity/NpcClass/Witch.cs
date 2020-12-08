@@ -11,5 +11,10 @@ namespace Game.Data.Models.Entity.NpcClass
         public override int Attack(){
             return 0;
         }
+
+        public override string ToString()
+        {
+            return "Witch";
+        }
     }
 }

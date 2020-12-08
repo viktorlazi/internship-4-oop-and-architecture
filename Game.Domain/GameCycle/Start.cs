@@ -56,9 +56,12 @@ namespace Game.Domain.GameCycle{
             Console.Clear();
 
             System.Console.WriteLine("Very well, " + PlayerData.Player);
-            System.Console.WriteLine("I will stay here where it's safe.");
-            System.Console.WriteLine("You go kill em!");
+            System.Console.WriteLine("Good luck!");
 
+            UserInput.EnterToContinue();
+            Console.Clear();
+
+            GenerateEnemies();
         }
         public static Player ChooseYourDestiny(){
             while(true){
@@ -86,6 +89,12 @@ namespace Game.Domain.GameCycle{
             }
         }
 
+        public static void GenerateEnemies(){
+            for(var i = 0; i <10;i++){
+                DungeonData.Entities.Add(Npc.RandomSpawn());
+            }
+            DungeonData.AllEntitiesToString();
+        }
 
     }
 }

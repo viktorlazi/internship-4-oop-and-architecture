@@ -12,5 +12,10 @@ namespace Game.Data.Models.Entity.NpcClass
             return 0;
         }
 
+        public override string ToString()
+        {
+            return "Brute";
+        }
+
     }
 }

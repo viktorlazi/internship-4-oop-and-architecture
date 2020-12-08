@@ -1,33 +1,41 @@
-
+using System.Collections.Generic;
 namespace Game.Data.Global
 {
     public static class DefaultStartValues
     {      
-        public static int WarriorHp = 75;
-        public static int WarriorDmg = 6;
+        public static int WarriorHp {get;set;}= 75;
+        public static int WarriorDmg {get;set;}= 6;
 
-        public static int RangerHp = 100;
-        public static int RangerDmg = 9;
-        public static int RangerCritDmg = RangerDmg+4;
-        public static double RangerCritChance = 0.3;
-        public static double RangerStunChance = 0.1;
+        public static int RangerHp {get;set;}= 100;
+        public static int RangerDmg {get;set;}= 9;
+        public static int RangerCritDmg {get;set;}= RangerDmg+4;
+        public static int RangerCritChance {get;set;}= 30;
+        public static int RangerStunChance {get;set;}= 10;
         
-        public static int MageHp = 125;
-        public static int MageDmg = 14;
-        public static int MageMana = 100;
+        public static int MageHp {get;set;}= 125;
+        public static int MageDmg {get;set;}= 14;
+        public static int MageMana {get;set;}= 100;
 
-        public static int GoblinHp = 45;
-        public static int GoblinDmg = 5;
+        public static int GoblinHp {get;set;}= 45;
+        public static int GoblinDmg {get;set;}= 5;
 
-        public static int WitchHp = 55;
-        public static int WitchDmg = 4;
-        public static double WitchSpawnChance = 0.1;
+        public static int WitchHp {get;set;}= 55;
+        public static int WitchDmg {get;set;}= 4;
 
-        public static int BruteHp = 200;
-        public static int BruteDmg = 13;
-        public static double BruteSlamChance = 0.2;
-        public static double BruteSlamDmg = 0.3;
-        public static double BruteSpawnChance = 0.35;
+        public static int BruteHp {get;set;}= 200;
+        public static int BruteDmg {get;set;}= 13;
+        public static int BruteSlamChance {get;set;}= 20;
+        public static int BruteSlamDmg {get;set;}= 30;
+
+
+        public static int GoblinSpawnChance {get;set;}= 55;
+        public static int WitchSpawnChance {get;set;}= 10;
+        public static int BruteSpawnChance {get;set;}= 35;
+        public static Dictionary<Enum.Npc, int> SpawnChances {get;set;}= new Dictionary<Enum.Npc, int>(){
+            {Enum.Npc.Goblin, GoblinSpawnChance},
+            {Enum.Npc.Brute, BruteSpawnChance},
+            {Enum.Npc.Witch, WitchSpawnChance} 
+        };
 
 
     }

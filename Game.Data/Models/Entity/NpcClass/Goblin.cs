@@ -8,8 +8,13 @@ namespace Game.Data.Models.Entity.NpcClass
             Damage = DefaultStartValues.GoblinDmg;
         }
         
-        public override  int Attack(){
+        public override int Attack(){
             return 0;
+        }
+
+        public override string ToString()
+        {
+            return "Goblin";
         }
     }
 }

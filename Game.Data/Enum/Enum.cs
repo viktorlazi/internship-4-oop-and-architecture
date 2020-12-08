@@ -5,4 +5,10 @@ namespace Game.Data.Enum{
         Protunapad
     }
 
+    public enum Npc{
+        Goblin,
+        Brute,
+        Witch
+    }
+
 }
