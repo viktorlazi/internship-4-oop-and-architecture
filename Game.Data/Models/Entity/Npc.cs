@@ -39,9 +39,11 @@ namespace Game.Data.Models.Entity
                     return new Goblin();                
             }   
         }
-
-
-
+        public static Enum.Strategy Strategy(){
+            var random = new Random();
+            int randomAttack = random.Next(0, 3);
+            return (Enum.Strategy)randomAttack;
+        }
         public override string ToString()
         {
             return "Npc";

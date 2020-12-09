@@ -1,5 +1,5 @@
 namespace Game.Data.Enum{
-    public enum Attack{
+    public enum Strategy{
         DirectAttack,
         SideAttack,
         CounterAttack

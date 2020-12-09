@@ -14,10 +14,6 @@ namespace Game.Data.Models.Entity.PlayerClass
         public double CriticalChance {get;set;} 
         public double StunChance {get;set;}
 
-        public override int Attack(){
-            return 0;
-        }
-
         bool StunAttack(){
             return false;
         }

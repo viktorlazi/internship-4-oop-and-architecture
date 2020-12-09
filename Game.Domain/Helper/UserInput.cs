@@ -22,5 +22,24 @@ namespace Game.Domain.Helper{
                 default: return Direction.NoDirection;
             }
         }
+
+        public static Game.Data.Enum.Strategy Strategy(){
+
+            while(true){
+                Console.Clear();
+                Console.WriteLine("Choose strategy! (0 - Direct Attack, 1 - Side Attack, 2 - Counter Attack");
+                var input = Console.ReadLine();
+                try{
+                    switch(int.Parse(input)){
+                        case 0: return Game.Data.Enum.Strategy.DirectAttack;
+                        case 1: return Game.Data.Enum.Strategy.SideAttack;
+                        case 2: return Game.Data.Enum.Strategy.CounterAttack;
+                        default: break;
+                    }
+                }catch{}
+                System.Console.WriteLine("Invalid input");
+                
+            }
+        }
     }
 }

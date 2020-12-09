@@ -10,9 +10,6 @@ namespace Game.Data.Models.Entity.PlayerClass
             DisplayColor=DefaultStartValues.WarriorColor;
         }
 
-        public override int Attack(){
-            return 0;
-        }
         int RageAttack(){
             return 0;
         }

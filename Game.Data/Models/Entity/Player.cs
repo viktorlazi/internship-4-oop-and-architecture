@@ -20,5 +20,7 @@ namespace Game.Data.Models.Entity
             return false;
         }
         public int Position{get;set;} = 16;
+
+        
     }
 }

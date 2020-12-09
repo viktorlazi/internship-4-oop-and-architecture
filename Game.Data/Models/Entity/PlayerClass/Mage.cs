@@ -14,9 +14,6 @@ namespace Game.Data.Models.Entity.PlayerClass
         
         public int Mana {get;set;}
         public bool Has2Lifes {get;set;} = true;
-        public override int Attack(){
-            return 0;
-        }
 
         public static string PrintPowers(){
             return "Power of mage is the power of energies.\n" +

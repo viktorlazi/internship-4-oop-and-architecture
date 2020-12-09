@@ -3,19 +3,20 @@ using System;
 using Game.Domain.Helper;
 using Game.Data.Models.Entity;
 using Game.Data.Global;
+using Game;
 namespace Game.Domain.GameCycle{
     public static class Fight{
         public static void Screen(){
             Console.Clear();
-
             while(true){
-                Console.Clear();
                 GameHeader(DungeonData.Npcs[0]);
+                Console.Clear();
                 if(ChooseAttacker()){
                     Attack();
                 }else{
                     Defend();
                 }
+                UserInput.EnterToContinue();
             }
 
         }
@@ -33,15 +34,42 @@ namespace Game.Domain.GameCycle{
         }
 
         static bool ChooseAttacker(){
-            Console.ReadLine();
-            return true;
-        }
+            while(true){
+                Console.Clear();
+                var playerStrat = UserInput.Strategy();
+                var npcStrat = Npc.Strategy();
 
+                System.Console.Write("Enemy played: ");
+
+                if(playerStrat == Data.Enum.Strategy.DirectAttack){
+                    switch(npcStrat){
+                        case Data.Enum.Strategy.DirectAttack: DisplayText.ColorLine("The same as you", ConsoleColor.Gray); break;
+                        case Data.Enum.Strategy.SideAttack: DisplayText.ColorLine("Side Attack", ConsoleColor.Green); return true;
+                        case Data.Enum.Strategy.CounterAttack: DisplayText.ColorLine("Counter Attack", ConsoleColor.Red); return false;
+                    }
+                }else if(playerStrat == Data.Enum.Strategy.SideAttack){
+                    switch(npcStrat){
+                        case Data.Enum.Strategy.DirectAttack: DisplayText.ColorLine("Direct Attack", ConsoleColor.Red); return false;
+                        case Data.Enum.Strategy.SideAttack: DisplayText.ColorLine("The same as you", ConsoleColor.Gray); break;
+                        case Data.Enum.Strategy.CounterAttack: DisplayText.ColorLine("Counter Attack", ConsoleColor.Green); return true;
+                    }
+                }else if(playerStrat == Data.Enum.Strategy.CounterAttack){
+                    switch(npcStrat){
+                        case Data.Enum.Strategy.DirectAttack: DisplayText.ColorLine("Direct Attack", ConsoleColor.Green); return true;
+                        case Data.Enum.Strategy.SideAttack: DisplayText.ColorLine("Side Attack", ConsoleColor.Red); return false;
+                        case Data.Enum.Strategy.CounterAttack: DisplayText.ColorLine("The same as you", ConsoleColor.Gray); break;
+                    }
+                }
+                System.Console.WriteLine("Try again");
+                UserInput.EnterToContinue();
+               
+            }
+        }
         static void Attack(){
-            
+            DisplayText.ColorLine("You outplayed your enemy!", ConsoleColor.Yellow);
         }
         static void Defend(){
-
+            DisplayText.ColorLine("You got outplayed.", ConsoleColor.Yellow);
         }
     }
 }
