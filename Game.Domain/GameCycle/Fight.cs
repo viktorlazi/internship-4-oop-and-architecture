@@ -22,10 +22,10 @@ namespace Game.Domain.GameCycle{
 
         static void GameHeader(Npc enemy){
             DisplayText.DashWall();
-            System.Console.WriteLine("You:");
+            System.Console.Write("You: "); DisplayText.ColorLine(PlayerData.Player1.ToString(), PlayerData.Player1.DisplayColor, ConsoleColor.DarkGray); 
             DisplayText.PlayerStats(PlayerData.Player1);
             DisplayText.DashWall();
-            System.Console.WriteLine("Enemy:");
+            System.Console.Write("Enemy: "); DisplayText.ColorLine(enemy.ToString(), enemy.DisplayColor, ConsoleColor.DarkGray); 
             DisplayText.EnemyStats(enemy);
             System.Console.WriteLine();
             DisplayText.DashWall();

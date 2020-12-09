@@ -10,13 +10,13 @@ namespace Game.Domain
     {
         static void Main(string[] args)
         {
-            int i = 17;
-            while(true){
+            PlayerData.Player1 = Start.ChooseYourDestiny();
+            Start.GenerateEnemies();
+            while(!End.GameEnded){
                 Console.Clear();
-                MoveAround.Down(ref i, ref DungeonData.Visual);
-                DisplayText.PrintDungeon(i);
-                Console.ReadLine();
-
+                Rest.Screen();
+                Walk.Screen();
+                Fight.Screen();
             }
         }
     }
