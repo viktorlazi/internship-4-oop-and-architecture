@@ -48,5 +48,12 @@ namespace Game.Data.Global
         public static ConsoleColor MageColor {get;} = ConsoleColor.Blue;
 
 
+
+        public static List<int> XpForLevel = new List<int>(){
+            0,0,100,300,1000
+        };
+
+
+
     }
 }

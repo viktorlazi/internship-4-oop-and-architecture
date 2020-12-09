@@ -1,12 +1,18 @@
 using System;
 using Game.Data.Global;
 using Game.Data.Models.Entity.NpcClass;
+using System.Collections.Generic;
 namespace Game.Data.Models.Entity
 {
     public class Npc : Entity
-    {      
-
-        
+    {  
+           
+        public override List<Tuple<string, ConsoleColor, int>> Stats(){
+            List<Tuple<string, ConsoleColor, int>> baseStats = base.Stats();
+            baseStats.Remove(new Tuple<string, ConsoleColor, int>("Xp", System.ConsoleColor.White, Xp));
+            return baseStats;            
+        }
+    
         public static Npc RandomSpawn(){
             var random = new Random();
             int randomNumber = random.Next(0,100);
@@ -33,6 +39,8 @@ namespace Game.Data.Models.Entity
                     return new Goblin();                
             }   
         }
+
+
 
         public override string ToString()
         {

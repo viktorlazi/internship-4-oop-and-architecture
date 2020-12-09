@@ -8,7 +8,7 @@ namespace Game.Data.Global
 {
     public static class DungeonData
     {      
-        public static List<Entity> Entities = new List<Entity>();
+        //public static List<Entity> Entities = new List<Entity>();
         public static List<Npc> Npcs = new List<Npc>();
 
         public static List<int> EnemyLines = new List<int> (){
@@ -45,9 +45,9 @@ namespace Game.Data.Global
         );
 
         
-        public static string AllEntitiesToString(){
+        public static string AllNpcsToString(){
             var result = "";
-            foreach(var e in Entities){
+            foreach(var e in Npcs){
                 result += e.ToString();
                 result += " - ";
             }

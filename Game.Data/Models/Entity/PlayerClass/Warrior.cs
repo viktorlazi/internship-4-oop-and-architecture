@@ -1,4 +1,5 @@
 using Game.Data.Global;
+using System.Collections.Generic;
 namespace Game.Data.Models.Entity.PlayerClass
 {
     public class Warrior:Player
@@ -21,8 +22,7 @@ namespace Game.Data.Models.Entity.PlayerClass
                 "\t-Extra HP, but less damage\n" +
                 "\t-Special ability: Charge, double damage on cost of 15% HP";
                 
-        }
-        
+        }       
 
         public override string ToString()
         {

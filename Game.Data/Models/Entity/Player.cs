@@ -1,22 +1,24 @@
 using System;
 using System.Collections.Generic;
+using Game.Data.Global;
 namespace Game.Data.Models.Entity
 {
     public class Player : Entity
     {      
-        public int Xp {get;set;} = 0;
-        public int Level {get;set;} = 1;
-
-        public int Position{get;set;} = 16;
-        
-
-        public virtual List<Tuple<string, ConsoleColor, int>> Stats(){
-            return new List<Tuple<string, ConsoleColor, int>>(){
-                new Tuple<string, ConsoleColor, int>("Xp", ConsoleColor.White, Xp),
-                new Tuple<string, ConsoleColor, int>("Level", ConsoleColor.White, Level),
-                new Tuple<string, ConsoleColor, int>("Hp", ConsoleColor.Red, Hp),
-                new Tuple<string, ConsoleColor, int>("Damage", ConsoleColor.Yellow, Damage)
-            };
+        public int XpToNextLevel {get;set;}
+        public Player(){
+            Xp = 0;
+            Level = 1;
+            XpToNextLevel = DefaultStartValues.XpForLevel[2];
         }
+
+        public bool LevelUp(){
+            if(Xp >= XpToNextLevel){
+                Level++;
+                return true;
+            }
+            return false;
+        }
+        public int Position{get;set;} = 16;
     }
 }
