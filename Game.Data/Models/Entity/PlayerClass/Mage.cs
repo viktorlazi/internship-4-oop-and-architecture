@@ -32,6 +32,8 @@ namespace Game.Data.Models.Entity.PlayerClass
             return Stats;
         }
 
+        
+
 
     }
     

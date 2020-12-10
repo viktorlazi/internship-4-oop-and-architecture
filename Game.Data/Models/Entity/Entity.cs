@@ -6,7 +6,6 @@ namespace Game.Data.Models.Entity
     {      
         public int Hp {get;set;}
         public int Damage {get;set;}
-        public bool isAlive{get;set;} = true;
         
         public int Xp {get;set;}
         
@@ -24,6 +23,23 @@ namespace Game.Data.Models.Entity
                 new Tuple<string, ConsoleColor, int>("Hp", ConsoleColor.Red, Hp),
                 new Tuple<string, ConsoleColor, int>("Damage", ConsoleColor.Yellow, Damage)
             };
+        }
+        public int Hit(){
+            return Damage + RandomizeDamage();
+        }
+        public int GetHit(int dmg){
+            Hp-=dmg;
+            return dmg;
+        }
+
+        public int RandomizeDamage(){
+            var random = new Random();
+            int randomAttack = random.Next(-1, 2);
+            return randomAttack;
+        }
+
+        public bool IsAlive(){
+            return Hp > 0;
         }
         public override string ToString(){
             return "Entity";

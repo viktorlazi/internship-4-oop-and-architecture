@@ -7,20 +7,26 @@ using Game;
 namespace Game.Domain.GameCycle{
     public static class Fight{
         public static void Screen(){
+            Npc opponent = DungeonData.Npcs[0];
             Console.Clear();
             while(true){
-                GameHeader(DungeonData.Npcs[0]);
-                Console.Clear();
                 if(ChooseAttacker()){
-                    Attack();
+                    Attack(opponent);
                 }else{
-                    Defend();
+                    Defend(opponent);
+                }
+
+                if(!opponent.IsAlive()){
+                    WinFight();
+                }
+                if(!PlayerData.Player1.IsAlive()){
+                    LoseFight();
                 }
                 UserInput.EnterToContinue();
             }
+            
 
         }
-
         static void GameHeader(Npc enemy){
             DisplayText.DashWall();
             System.Console.Write("You: "); DisplayText.ColorLine(PlayerData.Player1.ToString(), PlayerData.Player1.DisplayColor, ConsoleColor.DarkGray); 
@@ -36,6 +42,7 @@ namespace Game.Domain.GameCycle{
         static bool ChooseAttacker(){
             while(true){
                 Console.Clear();
+                GameHeader(DungeonData.Npcs[0]);
                 var playerStrat = UserInput.Strategy();
                 var npcStrat = Npc.Strategy();
 
@@ -65,11 +72,24 @@ namespace Game.Domain.GameCycle{
                
             }
         }
-        static void Attack(){
+        static void Attack(Npc npc){
             DisplayText.ColorLine("You outplayed your enemy!", ConsoleColor.Yellow);
+            DisplayText.ColorLine(
+                "You crush your enemy with " + npc.GetHit(PlayerData.Player1.Hit()) + " damage.", ConsoleColor.Green
+            );
         }
-        static void Defend(){
+        static void Defend(Npc npc){
             DisplayText.ColorLine("You got outplayed.", ConsoleColor.Yellow);
+            DisplayText.ColorLine(
+                npc.ToString() + " hits you with " + PlayerData.Player1.GetHit(npc.Hit()) + " damage.", ConsoleColor.Red
+            );
+        }       
+        static void WinFight(){
+
         }
+        static void LoseFight(){
+
+        }
+
     }
 }

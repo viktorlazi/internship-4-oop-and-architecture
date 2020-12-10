@@ -8,7 +8,7 @@ namespace Game.Presentation
         static void Main(string[] args)
         {
             Console.Clear();
-            System.Console.WriteLine("- Please make sure console is appropriate size. -");
+            System.Console.WriteLine("- Please make sure console is in fullscreen. -");
             System.Console.ReadLine();
             Start.WelcomeScreen();
             

@@ -26,6 +26,7 @@ namespace Game.Domain.Helper{
             Console.BackgroundColor = backColor;
             System.Console.WriteLine(text);
             Console.ResetColor();
+            
         }
 
         public static void DashWall(){

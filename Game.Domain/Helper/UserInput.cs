@@ -4,6 +4,7 @@ namespace Game.Domain.Helper{
     public static class UserInput{
         public static void EnterToContinue(){
             System.Console.WriteLine();
+            DisplayText.Color(" - enter - ", ConsoleColor.DarkGray);
             Console.ReadLine();
         }
 
@@ -26,7 +27,6 @@ namespace Game.Domain.Helper{
         public static Game.Data.Enum.Strategy Strategy(){
 
             while(true){
-                Console.Clear();
                 Console.WriteLine("Choose strategy! (0 - Direct Attack, 1 - Side Attack, 2 - Counter Attack");
                 var input = Console.ReadLine();
                 try{

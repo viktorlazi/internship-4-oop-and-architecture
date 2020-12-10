@@ -13,10 +13,8 @@ namespace Game.Domain
             PlayerData.Player1 = Start.ChooseYourDestiny();
             Start.GenerateEnemies();
             while(!End.GameEnded){
-                Console.Clear();
-                Rest.Screen();
-                Walk.Screen();
                 Fight.Screen();
+                UserInput.EnterToContinue();
             }
         }
     }
