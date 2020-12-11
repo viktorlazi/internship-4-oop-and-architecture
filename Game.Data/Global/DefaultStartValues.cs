@@ -4,17 +4,17 @@ namespace Game.Data.Global
 {
     public static class DefaultStartValues
     {      
-        public static int WarriorHp {get;set;}= 75;
-        public static int WarriorDmg {get;set;}= 6;
+        public static int WarriorHp {get;set;}= 125;
+        public static int WarriorDmg {get;set;}= 7;
 
         public static int RangerHp {get;set;}= 100;
-        public static int RangerDmg {get;set;}= 999;
+        public static int RangerDmg {get;set;}= 9;
         public static int RangerCritDmg {get;set;}= RangerDmg+4;
         public static int RangerCritChance {get;set;}= 30;
         public static int RangerStunChance {get;set;}= 10;
         
         public static int MageHp {get;set;}= 75;
-        public static int MageDmg {get;set;}= 14;
+        public static int MageDmg {get;set;}= 13;
         public static int MageMana {get;set;}= 130;
 
         public static int GoblinHp {get;set;}= 45;
@@ -25,7 +25,7 @@ namespace Game.Data.Global
         public static int WitchDmg {get;set;}= 4;
         public static int WitchXp {get;set;}= 85;
 
-        public static int BruteHp {get;set;}= 200;
+        public static int BruteHp {get;set;}= 100;
         public static int BruteDmg {get;set;}= 13;
         public static int BruteSlamChance {get;set;}= 20;
         public static int BruteSlamDmg {get;set;}= 30;

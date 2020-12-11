@@ -66,6 +66,7 @@ namespace Game.Domain.Helper{
                 }else{
                     Color("_x_", enemy.DisplayColor);
                 }
+                System.Console.WriteLine();
             }
         }
         public static void PrintDungeon(int playerPosition){

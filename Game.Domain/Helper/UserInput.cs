@@ -23,7 +23,24 @@ namespace Game.Domain.Helper{
                 default: return Direction.NoDirection;
             }
         }
-
+        public static bool AreYouSure(){
+            while(true){
+                switch(Console.ReadLine()){
+                    case "yes":
+                    case "y":
+                    case "Y":
+                    case "Yes":
+                    case "YES":
+                        return true;
+                    case "no":
+                    case "n":
+                    case "No":
+                    case "NO":
+                    case "N":
+                        return false;
+                }
+            }
+        }
         public static Game.Data.Enum.Strategy Strategy(){
 
             while(true){

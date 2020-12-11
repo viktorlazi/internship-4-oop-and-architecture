@@ -5,26 +5,23 @@ namespace Game.Presentation
 {
     class Program
     {
-        /*
-            zadatak - "Svako čudovište ima nekom kvazi-random metodom generirani HP i Damage, te koliko
-            vrijedi Experiencea ako se porazi"
-             - umisto ovoga postoje leveli za cudovista
-        */
         static void Main(string[] args)
         {
-            Console.Clear();
-            System.Console.WriteLine("- Please make sure console is in fullscreen. -");
-            System.Console.ReadLine();
-            Start.WelcomeScreen();
-                        
             while(!End.GameEnded){
-                Rest.Screen();
-                Walk.Screen();
-                Fight.Screen();
                 Console.Clear();
+                System.Console.WriteLine("- Please make sure console is in fullscreen. -");
+                System.Console.ReadLine();
+                Start.WelcomeScreen();
+                            
+                while(!End.GameEnded){
+                    Rest.Screen();
+                    Walk.Screen();
+                    Fight.Screen();
+                    Console.Clear();
+                }
+                End.Screen();
+                Console.ReadLine();
             }
-            End.Screen();
-            Console.ReadLine();
         }
     }
 }

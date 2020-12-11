@@ -11,6 +11,7 @@ namespace Game.Data.Models.Entity.PlayerClass
             Damage=DefaultStartValues.MageDmg;
             DisplayColor=DefaultStartValues.MageColor;
             MaxHp = Hp;
+            MaxMana = Mana;
         }
         
         public int Mana {get;set;}

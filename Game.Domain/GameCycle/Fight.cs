@@ -105,14 +105,27 @@ namespace Game.Domain.GameCycle{
         }
         static void Attack(Player p, Entity enemy){
             DisplayText.ColorLine("You outplayed your enemy!", ConsoleColor.Yellow);
-            DisplayText.ColorLine(
-                "You crush your enemy with " + p.Hit(enemy) + " damage.", ConsoleColor.Green
-            );
+            if(p is Warrior){
+                DisplayText.ColorLine("If you want to charge your enemy type 'charge', enter for normal attack", ConsoleColor.Magenta);
+                if(Console.ReadLine() == "charge"){
+                    DisplayText.ColorLine(
+                    "You charge your enemy with " + ((Warrior)p).Charge(enemy) + " damage at the cost of 10% HP", ConsoleColor.Yellow
+                    );
+                }else{
+                    DisplayText.ColorLine(
+                    "You crush your enemy dealing " + p.Hit(enemy) + " damage.", ConsoleColor.Green
+                    );  
+                }
+            }else{
+                DisplayText.ColorLine(
+                    "You crush your enemy dealing " + p.Hit(enemy) + " damage.", ConsoleColor.Green
+                );
+            }
         }
         static void Defend(Player p, Entity enemy){
             DisplayText.ColorLine("You got outplayed.", ConsoleColor.Yellow);
             DisplayText.ColorLine(
-                enemy.ToString() + " hits you with " + enemy.Hit(p) + " damage.", ConsoleColor.Red
+                enemy.ToString() + " hits you dealing " + enemy.Hit(p) + " damage.", ConsoleColor.Red
             );
         }       
         static void WinFight(Player p, Entity enemy){

@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Game.Domain.Helper;
+using Game.Data.Global;
 
 namespace Game.Domain.GameCycle{
     public static class End{        
@@ -9,6 +11,11 @@ namespace Game.Domain.GameCycle{
                 System.Console.WriteLine("You win!");
             }else{
                 System.Console.WriteLine("You lost!");
+                System.Console.WriteLine("Try again?");
+                if(UserInput.AreYouSure()){
+                    DungeonData.Npcs.Clear();
+                    GameEnded = false;
+                }
             }
         }
     }

@@ -11,15 +11,17 @@ namespace Game.Data.Models.Entity.PlayerClass
             MaxHp = Hp;
         }
 
-        int RageAttack(){
-            return 0;
+        public int Charge(Entity enemy){
+            Hp-=(int)(MaxHp*0.1);
+            var dmg = 3*Damage + RandomizeDamage();
+            enemy.GetHit(dmg);
+            return dmg;
         }
 
         public static string PrintPowers(){
             return "Power of warrior is the power of strenght and ferocity.\n" +
                 "\t-Extra HP, but less damage\n" +
-                "\t-Special ability: Charge, double damage on cost of 15% HP";
-                
+                "\t-Special ability: Charge, double damage on cost of 10% HP";                
         }       
 
         public override string ToString()

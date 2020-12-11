@@ -41,7 +41,7 @@ namespace Game.Data.Models.Entity
 
         public int RandomizeDamage(){
             var random = new Random();
-            int randomAttack = random.Next(-1, 2);
+            int randomAttack = random.Next(-1 + (int)(-Damage*0.2), 1 + (int)(-Damage*0.2));
             return randomAttack;
         }
 
