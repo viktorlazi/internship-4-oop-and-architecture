@@ -25,10 +25,8 @@ namespace Game.Domain.Helper{
             Console.ForegroundColor = color;
             Console.BackgroundColor = backColor;
             System.Console.WriteLine(text);
-            Console.ResetColor();
-            
+            Console.ResetColor();   
         }
-
         public static void DashWall(){
             // 32 ih je
             System.Console.WriteLine("--------------------------------");
@@ -44,8 +42,6 @@ namespace Game.Domain.Helper{
             System.Console.WriteLine("--------------------------------");
             Console.ResetColor();
         }
-
-
         public static void PlayerStats(Player player){
             foreach(var stat in player.Stats()){
                 System.Console.Write("\t");
@@ -62,24 +58,21 @@ namespace Game.Domain.Helper{
                 DisplayText.ColorLine(stat.Item3.ToString(), stat.Item2);
             }
         }
-
-        
-
         public static void EnemiesInOrder(List<Npc> enemies){
             foreach(var enemy in enemies){
                 System.Console.Write(" -> ");
-                Color(enemy.ToString(), enemy.DisplayColor);
+                if(enemy.IsAlive()){
+                    Color(enemy.ToString(), enemy.DisplayColor);
+                }else{
+                    Color("_x_", enemy.DisplayColor);
+                }
             }
         }
-
         public static void PrintDungeon(int playerPosition){
             Console.Clear();
             DungeonData.Visual = DungeonData.Visual.Remove(playerPosition, 1);            
             DungeonData.Visual = DungeonData.Visual.Insert(playerPosition, "O");
             System.Console.WriteLine(DungeonData.Visual);
         }
-
-        
-
     }
 }

@@ -5,8 +5,8 @@ namespace Game.Data.Models.Entity
     public class Entity
     {      
         public int Hp {get;set;}
-        public int Damage {get;set;}
-        
+        public int MaxHp{get;set;} // dodat u buducnosti nedamisesad, triba bit "HP: Hp/MaxHp"
+        public int Damage {get;set;}        
         public int Xp {get;set;}
         
         public int Level {get;set;}
@@ -25,7 +25,7 @@ namespace Game.Data.Models.Entity
                 new Tuple<string, ConsoleColor, int>("Damage", ConsoleColor.Yellow, Damage)
             };
         }
-        public int Hit(){
+        public virtual int Hit(){
             return Damage + RandomizeDamage();
         }
         public int GetHit(int dmg){

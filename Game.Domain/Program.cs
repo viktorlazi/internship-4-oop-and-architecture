@@ -10,12 +10,10 @@ namespace Game.Domain
     {
         static void Main(string[] args)
         {
-            PlayerData.Player1 = Start.ChooseYourDestiny();
-            Start.GenerateEnemies();
-            while(!End.GameEnded){
-                Fight.Screen();
-                UserInput.EnterToContinue();
-            }
+            System.Console.WriteLine(
+                DungeonData.Visual.IndexOf('X')
+            );
+            Console.ReadLine();
         }
     }
 }

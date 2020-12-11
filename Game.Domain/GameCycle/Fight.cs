@@ -20,19 +20,26 @@ namespace Game.Domain.GameCycle{
                             DisplayText.ColorLine("But you ressurected, jebe se tebe.", ConsoleColor.Green);
                         }else{
                             DisplayText.ColorLine("Again... Dissapointment.", ConsoleColor.Blue);
+                            LoseFight();
+                            return;
                         }
                     }else{
                         LoseFight();
+                        return;
                     }
                     UserInput.EnterToContinue();
                 }
+                if(!opponent.IsAlive()){
+                    DisplayText.ColorLine("You killed the " + opponent.ToString(), ConsoleColor.Green);
+                    UserInput.EnterToContinue();
+                    WinFight();
+                    return;
+                }
+                
                 if(ChooseAttacker(player, opponent)){
                     Attack(player, opponent);
                 }else{
                     Defend(player, opponent);
-                }
-                if(!opponent.IsAlive()){
-                    WinFight();
                 }
                 
                 UserInput.EnterToContinue();
@@ -104,11 +111,12 @@ namespace Game.Domain.GameCycle{
             );
         }       
         static void WinFight(){
-
+            //DungeonData.Npcs.RemoveAt(0); //probably should stay in a list even if he's dead
+            DungeonData.RemoveFirstEnemyVisual();
+            DungeonData.EnemyLines.RemoveAt(0);
         }
         static void LoseFight(){
-
+            End.GameEnded = true;
         }
-
     }
 }

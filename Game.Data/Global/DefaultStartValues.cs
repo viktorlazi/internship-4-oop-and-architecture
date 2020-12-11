@@ -13,9 +13,9 @@ namespace Game.Data.Global
         public static int RangerCritChance {get;set;}= 30;
         public static int RangerStunChance {get;set;}= 10;
         
-        public static int MageHp {get;set;}= 20;
+        public static int MageHp {get;set;}= 75;
         public static int MageDmg {get;set;}= 14;
-        public static int MageMana {get;set;}= 100;
+        public static int MageMana {get;set;}= 130;
 
         public static int GoblinHp {get;set;}= 45;
         public static int GoblinDmg {get;set;}= 5;
@@ -28,10 +28,10 @@ namespace Game.Data.Global
         public static int BruteSlamChance {get;set;}= 20;
         public static int BruteSlamDmg {get;set;}= 30;
 
-
-        public static int GoblinSpawnChance {get;set;}= 55;
-        public static int WitchSpawnChance {get;set;}= 10;
-        public static int BruteSpawnChance {get;set;}= 35;
+        
+        public static int GoblinSpawnChance {get;set;}= 75; //per cent
+        public static int WitchSpawnChance {get;set;}= 5;
+        public static int BruteSpawnChance {get;set;}= 10;
         public static Dictionary<Enum.Npc, int> SpawnChances {get;set;}= new Dictionary<Enum.Npc, int>(){
             {Enum.Npc.Goblin, GoblinSpawnChance},
             {Enum.Npc.Brute, BruteSpawnChance},

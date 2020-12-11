@@ -13,6 +13,7 @@ namespace Game.Data.Models.Entity.PlayerClass
         }
         
         public int Mana {get;set;}
+        public int MaxMana{get;set;} // ovo posli, vidi class Entity
         public bool Has2Lifes {get;set;} = true;
 
         public static string PrintPowers(){
@@ -32,6 +33,11 @@ namespace Game.Data.Models.Entity.PlayerClass
             return Stats;
         }
 
+        public override int Hit(){
+            int amount = base.Hit();
+            Mana -= amount;
+            return amount;
+        }
         public bool Ressurect(){
             if(Has2Lifes){
                 Hp = DefaultStartValues.MageHp/2;
