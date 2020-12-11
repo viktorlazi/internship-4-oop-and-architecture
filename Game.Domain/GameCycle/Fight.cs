@@ -114,7 +114,8 @@ namespace Game.Domain.GameCycle{
             //DungeonData.Npcs.RemoveAt(0); //probably should stay in a list even if he's dead
             DungeonData.RemoveFirstEnemyVisual();
             DungeonData.EnemyLines.RemoveAt(0);
-            p.Xp += enemy.Xp;
+            p.RegenerateAfterFight();
+            p.GrantXp(enemy.Xp);
         }
         static void LoseFight(){
             End.GameEnded = true;

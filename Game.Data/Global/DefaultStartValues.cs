@@ -31,7 +31,7 @@ namespace Game.Data.Global
         
         public static int GoblinSpawnChance {get;set;}= 75; //per cent
         public static int WitchSpawnChance {get;set;}= 5;
-        public static int BruteSpawnChance {get;set;}= 10;
+        public static int BruteSpawnChance {get;set;}= 20;
         public static Dictionary<Enum.Npc, int> SpawnChances {get;set;}= new Dictionary<Enum.Npc, int>(){
             {Enum.Npc.Goblin, GoblinSpawnChance},
             {Enum.Npc.Brute, BruteSpawnChance},

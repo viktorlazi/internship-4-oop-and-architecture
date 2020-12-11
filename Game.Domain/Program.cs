@@ -10,9 +10,7 @@ namespace Game.Domain
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine(
-                DungeonData.Visual.IndexOf('X')
-            );
+            GameCycle.Start.GenerateEnemies();
             Console.ReadLine();
         }
     }

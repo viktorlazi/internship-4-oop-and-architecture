@@ -6,7 +6,7 @@ namespace Game.Presentation
     class Program
     {
         /*
-            "Svako čudovište ima nekom kvazi-random metodom generirani HP i Damage, te koliko
+            zadatak - "Svako čudovište ima nekom kvazi-random metodom generirani HP i Damage, te koliko
             vrijedi Experiencea ako se porazi"
              - ovo san prominia tako da HP, Damage, Exp  imaju default vrijednosti ali 
                 se mijenjaju levelom, a damage ima i random komponentu
