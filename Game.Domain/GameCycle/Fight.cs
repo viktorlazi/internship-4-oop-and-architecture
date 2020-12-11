@@ -3,31 +3,44 @@ using System;
 using Game.Domain.Helper;
 using Game.Data.Models.Entity;
 using Game.Data.Global;
+using Game.Data.Models.Entity.PlayerClass;
 using Game;
 namespace Game.Domain.GameCycle{
     public static class Fight{
         public static void Screen(){
-            Npc opponent = DungeonData.Npcs[0];
+            Entity opponent = DungeonData.Npcs[0];
+            Player player = PlayerData.Player1;
             Console.Clear();
             while(true){
-                if(ChooseAttacker()){
-                    Attack(opponent);
-                }else{
-                    Defend(opponent);
+                if(!player.IsAlive()){
+                    DisplayText.ColorLine("You died. Tragedy.", ConsoleColor.Red);
+                    if(player is Mage){
+                        if(((Mage)player).Has2Lifes){
+                            ((Mage)player).Ressurect();
+                            DisplayText.ColorLine("But you ressurected, jebe se tebe.", ConsoleColor.Green);
+                        }else{
+                            DisplayText.ColorLine("Again... Dissapointment.", ConsoleColor.Blue);
+                        }
+                    }else{
+                        LoseFight();
+                    }
+                    UserInput.EnterToContinue();
                 }
-
+                if(ChooseAttacker(player, opponent)){
+                    Attack(player, opponent);
+                }else{
+                    Defend(player, opponent);
+                }
                 if(!opponent.IsAlive()){
                     WinFight();
                 }
-                if(!PlayerData.Player1.IsAlive()){
-                    LoseFight();
-                }
+                
                 UserInput.EnterToContinue();
             }
         }
-        static void GameHeader(Npc enemy){
+        static void GameHeader(Player you, Entity enemy){
             DisplayText.DashWall();
-            System.Console.Write("You: "); DisplayText.ColorLine(PlayerData.Player1.ToString(), PlayerData.Player1.DisplayColor, ConsoleColor.DarkGray); 
+            System.Console.Write("You: "); DisplayText.ColorLine(you.ToString(), PlayerData.Player1.DisplayColor, ConsoleColor.DarkGray); 
             DisplayText.PlayerStats(PlayerData.Player1);
             DisplayText.DashWall();
             System.Console.Write("Enemy: "); DisplayText.ColorLine(enemy.ToString(), enemy.DisplayColor, ConsoleColor.DarkGray); 
@@ -37,10 +50,19 @@ namespace Game.Domain.GameCycle{
             DisplayText.DashWall();
         }
 
-        static bool ChooseAttacker(){
+        static bool ChooseAttacker(Player player, Entity opponent){
+            if(player.Stunned){
+                DisplayText.ColorLine("You are stunned", ConsoleColor.Red);
+                return false;
+            }
+            if(opponent.Stunned){
+                DisplayText.ColorLine("You stunned your enemy, so you get to attack again", ConsoleColor.Green);
+                return true;
+            }
+
             while(true){
                 Console.Clear();
-                GameHeader(DungeonData.Npcs[0]);
+                GameHeader(player, opponent);
                 var playerStrat = UserInput.Strategy();
                 var npcStrat = Npc.Strategy();
 
@@ -69,16 +91,16 @@ namespace Game.Domain.GameCycle{
                 UserInput.EnterToContinue();              
             }
         }
-        static void Attack(Npc npc){
+        static void Attack(Player p, Entity enemy){
             DisplayText.ColorLine("You outplayed your enemy!", ConsoleColor.Yellow);
             DisplayText.ColorLine(
-                "You crush your enemy with " + npc.GetHit(PlayerData.Player1.Hit()) + " damage.", ConsoleColor.Green
+                "You crush your enemy with " + enemy.GetHit(p.Hit()) + " damage.", ConsoleColor.Green
             );
         }
-        static void Defend(Npc npc){
+        static void Defend(Player p, Entity enemy){
             DisplayText.ColorLine("You got outplayed.", ConsoleColor.Yellow);
             DisplayText.ColorLine(
-                npc.ToString() + " hits you with " + PlayerData.Player1.GetHit(npc.Hit()) + " damage.", ConsoleColor.Red
+                enemy.ToString() + " hits you with " + p.GetHit(enemy.Hit()) + " damage.", ConsoleColor.Red
             );
         }       
         static void WinFight(){

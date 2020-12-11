@@ -54,7 +54,7 @@ namespace Game.Domain.Helper{
                 DisplayText.ColorLine(stat.Item3.ToString(), stat.Item2);
             }
         }
-        public static void EnemyStats(Npc enemy){
+        public static void EnemyStats(Entity enemy){
             foreach(var stat in enemy.Stats()){
                 System.Console.Write("\t");
                 DisplayText.Color(stat.Item1, stat.Item2);

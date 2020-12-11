@@ -11,6 +11,7 @@ namespace Game.Data.Models.Entity
         
         public int Level {get;set;}
         
+        public bool Stunned{get;set;} = false;
 
         public ConsoleColor DisplayColor{get;set;}
         public virtual int Attack(){
@@ -38,7 +39,7 @@ namespace Game.Data.Models.Entity
             return randomAttack;
         }
 
-        public virtual bool IsAlive(){
+        public bool IsAlive(){
             return Hp > 0;
         }
         public override string ToString(){

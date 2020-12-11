@@ -13,7 +13,7 @@ namespace Game.Data.Global
         public static int RangerCritChance {get;set;}= 30;
         public static int RangerStunChance {get;set;}= 10;
         
-        public static int MageHp {get;set;}= 125;
+        public static int MageHp {get;set;}= 20;
         public static int MageDmg {get;set;}= 14;
         public static int MageMana {get;set;}= 100;
 
