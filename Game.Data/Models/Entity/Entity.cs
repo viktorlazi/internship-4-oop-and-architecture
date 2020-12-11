@@ -38,7 +38,7 @@ namespace Game.Data.Models.Entity
             return randomAttack;
         }
 
-        public bool IsAlive(){
+        public virtual bool IsAlive(){
             return Hp > 0;
         }
         public override string ToString(){

@@ -31,10 +31,12 @@ namespace Game.Data.Models.Entity.PlayerClass
 
             return Stats;
         }
-
-        
-
-
+        public override bool IsAlive(){
+            if(Hp <= 0 && Has2Lifes){
+                Has2Lifes = false;
+                Hp = (int)(DefaultStartValues.MageHp/2);
+            }
+            return Hp > 0 || Has2Lifes;
+        }
     }
-    
 }

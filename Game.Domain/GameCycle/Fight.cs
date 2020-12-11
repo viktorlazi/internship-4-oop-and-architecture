@@ -24,8 +24,6 @@ namespace Game.Domain.GameCycle{
                 }
                 UserInput.EnterToContinue();
             }
-            
-
         }
         static void GameHeader(Npc enemy){
             DisplayText.DashWall();
@@ -68,8 +66,7 @@ namespace Game.Domain.GameCycle{
                     }
                 }
                 System.Console.WriteLine("Try again");
-                UserInput.EnterToContinue();
-               
+                UserInput.EnterToContinue();              
             }
         }
         static void Attack(Npc npc){
