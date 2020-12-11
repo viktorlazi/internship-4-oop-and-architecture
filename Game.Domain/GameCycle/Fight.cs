@@ -8,7 +8,11 @@ using Game;
 namespace Game.Domain.GameCycle{
     public static class Fight{
         public static void Screen(){
-            Entity opponent = DungeonData.Npcs[0];
+            Entity opponent = DungeonData.NextAliveNpc();
+            if(opponent == null){
+                End.GameEnded = true;
+                return;
+            }
             Player player = PlayerData.Player1;
             Console.Clear();
             while(true){
@@ -101,21 +105,21 @@ namespace Game.Domain.GameCycle{
         static void Attack(Player p, Entity enemy){
             DisplayText.ColorLine("You outplayed your enemy!", ConsoleColor.Yellow);
             DisplayText.ColorLine(
-                "You crush your enemy with " + enemy.GetHit(p.Hit()) + " damage.", ConsoleColor.Green
+                "You crush your enemy with " + p.Hit(enemy) + " damage.", ConsoleColor.Green
             );
         }
         static void Defend(Player p, Entity enemy){
             DisplayText.ColorLine("You got outplayed.", ConsoleColor.Yellow);
             DisplayText.ColorLine(
-                enemy.ToString() + " hits you with " + p.GetHit(enemy.Hit()) + " damage.", ConsoleColor.Red
+                enemy.ToString() + " hits you with " + enemy.Hit(p) + " damage.", ConsoleColor.Red
             );
         }       
         static void WinFight(Player p, Entity enemy){
             //DungeonData.Npcs.RemoveAt(0); //probably should stay in a list even if he's dead
+            p.GrantXp(enemy.Xp);
             DungeonData.RemoveFirstEnemyVisual();
             DungeonData.EnemyLines.RemoveAt(0);
             p.RegenerateAfterFight();
-            p.GrantXp(enemy.Xp);
         }
         static void LoseFight(){
             End.GameEnded = true;

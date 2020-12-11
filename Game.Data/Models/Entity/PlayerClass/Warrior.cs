@@ -8,6 +8,7 @@ namespace Game.Data.Models.Entity.PlayerClass
             Hp=DefaultStartValues.WarriorHp;
             Damage = DefaultStartValues.WarriorDmg;
             DisplayColor=DefaultStartValues.WarriorColor;
+            MaxHp = Hp;
         }
 
         int RageAttack(){

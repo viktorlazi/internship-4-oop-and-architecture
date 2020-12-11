@@ -10,6 +10,7 @@ namespace Game.Data.Models.Entity.PlayerClass
             Mana=DefaultStartValues.MageMana;
             Damage=DefaultStartValues.MageDmg;
             DisplayColor=DefaultStartValues.MageColor;
+            MaxHp = Hp;
         }
         
         public int Mana {get;set;}
@@ -33,8 +34,8 @@ namespace Game.Data.Models.Entity.PlayerClass
             return Stats;
         }
 
-        public override int Hit(){
-            int amount = base.Hit();
+        public override int Hit(Entity enemy){
+            int amount = base.Hit(enemy);
             Mana -= amount;
             return amount;
         }

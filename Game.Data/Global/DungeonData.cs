@@ -10,6 +10,14 @@ namespace Game.Data.Global
     {      
         //public static List<Entity> Entities = new List<Entity>();
         public static List<Npc> Npcs = new List<Npc>();
+        public static Npc NextAliveNpc(){
+            foreach(var npc in Npcs){
+                if(npc.IsAlive()){
+                    return npc;
+                }
+            }
+            return null;
+        }
 
         public static List<int> EnemyLines = new List<int> (){
             4,6,8,10,12,14,16,18,20,22

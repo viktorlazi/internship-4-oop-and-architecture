@@ -7,6 +7,8 @@ namespace Game.Data.Models.Entity.NpcClass
             Hp = DefaultStartValues.BruteHp;
             Damage =DefaultStartValues.BruteDmg;
             DisplayColor=DefaultStartValues.BruteColor;
+            MaxHp = Hp;
+            Xp = DefaultStartValues.BruteXp;
         }
         
         public override int Attack(){

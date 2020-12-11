@@ -8,7 +8,7 @@ namespace Game.Data.Models.Entity
         public int MaxHp{get;set;} // dodat u buducnosti nedamisesad, triba bit "HP: Hp/MaxHp"
         public int Damage {get;set;}        
         public int Xp {get;set;}
-        
+        public int XpToNextLevel {get;set;}        
         public int Level {get;set;}
         
         public bool Stunned{get;set;} = false;
@@ -25,8 +25,10 @@ namespace Game.Data.Models.Entity
                 new Tuple<string, ConsoleColor, int>("Damage", ConsoleColor.Yellow, Damage)
             };
         }
-        public virtual int Hit(){
-            return Damage + RandomizeDamage();
+        public virtual int Hit(Entity enemy){
+            var amount = Damage + RandomizeDamage();
+            enemy.GetHit(amount);
+            return amount;
         }
         public int GetHit(int dmg){
             Hp-=dmg;
@@ -39,6 +41,17 @@ namespace Game.Data.Models.Entity
             return randomAttack;
         }
 
+        public void GrantXp(int xp){
+            Xp += xp;
+            this.LevelUp();
+        }
+        public bool LevelUp(){
+            if(Xp >= XpToNextLevel){
+                Level++;
+                return true;
+            }
+            return false;
+        }
         public bool IsAlive(){
             return Hp > 0;
         }

@@ -19,14 +19,17 @@ namespace Game.Data.Global
 
         public static int GoblinHp {get;set;}= 45;
         public static int GoblinDmg {get;set;}= 5;
+        public static int GoblinXp {get;set;}= 15;
 
         public static int WitchHp {get;set;}= 55;
         public static int WitchDmg {get;set;}= 4;
+        public static int WitchXp {get;set;}= 85;
 
         public static int BruteHp {get;set;}= 200;
         public static int BruteDmg {get;set;}= 13;
         public static int BruteSlamChance {get;set;}= 20;
         public static int BruteSlamDmg {get;set;}= 30;
+        public static int BruteXp {get;set;}= 45;
 
         
         public static int GoblinSpawnChance {get;set;}= 75; //per cent

@@ -12,7 +12,6 @@ namespace Game.Domain.GameCycle{
             System.Console.WriteLine("Your enemies: ");
             DisplayText.EnemiesInOrder(DungeonData.Npcs);
             
-
             UserInput.EnterToContinue();
         }
     }
