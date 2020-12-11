@@ -32,7 +32,7 @@ namespace Game.Domain.GameCycle{
                 if(!opponent.IsAlive()){
                     DisplayText.ColorLine("You killed the " + opponent.ToString(), ConsoleColor.Green);
                     UserInput.EnterToContinue();
-                    WinFight();
+                    WinFight(player, opponent);
                     return;
                 }
                 
@@ -110,10 +110,11 @@ namespace Game.Domain.GameCycle{
                 enemy.ToString() + " hits you with " + p.GetHit(enemy.Hit()) + " damage.", ConsoleColor.Red
             );
         }       
-        static void WinFight(){
+        static void WinFight(Player p, Entity enemy){
             //DungeonData.Npcs.RemoveAt(0); //probably should stay in a list even if he's dead
             DungeonData.RemoveFirstEnemyVisual();
             DungeonData.EnemyLines.RemoveAt(0);
+            p.Xp += enemy.Xp;
         }
         static void LoseFight(){
             End.GameEnded = true;
