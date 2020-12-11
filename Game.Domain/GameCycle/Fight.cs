@@ -5,9 +5,11 @@ using Game.Data.Models.Entity;
 using Game.Data.Global;
 using Game.Data.Models.Entity.PlayerClass;
 using Game;
+using Game.Data.Models.Entity.NpcClass;
 namespace Game.Domain.GameCycle{
     public static class Fight{
         public static void Screen(){
+            DungeonData.FightLog.Clear();
             Entity opponent = DungeonData.NextAliveNpc();
             if(opponent == null){
                 End.GameEnded = true;
@@ -108,28 +110,29 @@ namespace Game.Domain.GameCycle{
             if(p is Warrior){
                 DisplayText.ColorLine("If you want to charge your enemy type 'charge', enter for normal attack", ConsoleColor.Magenta);
                 if(Console.ReadLine() == "charge"){
-                    DisplayText.ColorLine(
-                    "You charge your enemy with " + ((Warrior)p).Charge(enemy) + " damage at the cost of 10% HP", ConsoleColor.Yellow
-                    );
+                    var dmg = ((Warrior)p).Charge(enemy);
+                    DisplayText.ColorLine("You charge your enemy with " + dmg + " damage at the cost of 10% HP", ConsoleColor.Yellow);
+                    DungeonData.Log(ConsoleColor.Green, "You charge " + enemy.ToString() + " for " + dmg + " and lose 10% hp \t\t\t\t" + p.Hp + " | " + enemy.Hp);
                 }else{
-                    DisplayText.ColorLine(
-                    "You crush your enemy dealing " + p.Hit(enemy) + " damage.", ConsoleColor.Green
-                    );  
+                    var dmg = p.Hit(enemy);
+                    DisplayText.ColorLine("You crush your enemy dealing " + dmg+ " damage.", ConsoleColor.Green);
+                    DungeonData.Log(ConsoleColor.Green, "You hit " + enemy.ToString() + " for " + dmg + "\t\t\t\t" + p.Hp + " | " + enemy.Hp);
                 }
             }else{
-                DisplayText.ColorLine(
-                    "You crush your enemy dealing " + p.Hit(enemy) + " damage.", ConsoleColor.Green
-                );
+                var dmg = p.Hit(enemy);
+                DisplayText.ColorLine("You crush your enemy dealing " + dmg + " damage.", ConsoleColor.Green);
+                DungeonData.Log(ConsoleColor.Green, "You hit " + enemy.ToString() + " for " + dmg + "\t\t\t\t" + p.Hp + " | " + enemy.Hp);
             }
         }
         static void Defend(Player p, Entity enemy){
             DisplayText.ColorLine("You got outplayed.", ConsoleColor.Yellow);
+            var dmg = enemy.Hit(p);
             DisplayText.ColorLine(
-                enemy.ToString() + " hits you dealing " + enemy.Hit(p) + " damage.", ConsoleColor.Red
+                enemy.ToString() + " hits you dealing " + dmg + " damage.", ConsoleColor.Red
             );
+            DungeonData.Log(ConsoleColor.Red, "You get hit by " + enemy.ToString() + " for " + dmg + "\t\t\t\t" + p.Hp + " | " + enemy.Hp);
         }       
         static void WinFight(Player p, Entity enemy){
-            //DungeonData.Npcs.RemoveAt(0); //probably should stay in a list even if he's dead
             p.GrantXp(enemy.Xp);
             DungeonData.RemoveFirstEnemyVisual();
             if(DungeonData.EnemyLines.Count > 0){

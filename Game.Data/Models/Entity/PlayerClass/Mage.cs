@@ -40,6 +40,10 @@ namespace Game.Data.Models.Entity.PlayerClass
             Mana -= amount;
             return amount;
         }
+        public override void RegenerateAfterFight(){
+            base.RegenerateAfterFight();
+            Mana+=MaxMana;
+        }
         public bool Ressurect(){
             if(Has2Lifes){
                 Hp = DefaultStartValues.MageHp/2;

@@ -35,6 +35,7 @@ namespace Game.Domain.GameCycle{
                     XpToHealth(PlayerData.Player1);
                     return false;
                 case 3: 
+                    FightLog();
                     return false;
                 default: 
                     return false;
@@ -49,6 +50,7 @@ namespace Game.Domain.GameCycle{
                 if(UserInput.AreYouSure()){
                     System.Console.WriteLine("Ok");
                     player.Xp -= (int)player.XpToNextLevel/2;
+                    player.Hp = player.MaxHp;
                 }else{
                     System.Console.WriteLine("Going back");
                 }
@@ -58,5 +60,15 @@ namespace Game.Domain.GameCycle{
             UserInput.EnterToContinue();
         }
 
+        static void FightLog(){
+            if(DungeonData.FightLog.Count > 0){
+                foreach(var log in DungeonData.FightLog){
+                    DisplayText.ColorLine(log.Item2, log.Item1);
+                }
+            }else{
+                System.Console.WriteLine("Empty");
+            }
+            UserInput.EnterToContinue();
+        }
     }
 }

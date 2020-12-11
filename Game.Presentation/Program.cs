@@ -20,7 +20,6 @@ namespace Game.Presentation
                     Console.Clear();
                 }
                 End.Screen();
-                Console.ReadLine();
             }
         }
     }

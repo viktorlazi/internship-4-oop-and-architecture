@@ -10,11 +10,6 @@ namespace Game.Data.Models.Entity.NpcClass
             MaxHp = Hp;
             Xp = DefaultStartValues.GoblinXp;
         }
-        
-        public override int Attack(){
-            return 0;
-        }
-
         public override string ToString()
         {
             return "Goblin";

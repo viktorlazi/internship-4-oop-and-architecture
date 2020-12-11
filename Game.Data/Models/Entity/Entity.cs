@@ -60,6 +60,7 @@ namespace Game.Data.Models.Entity
         public bool IsAlive(){
             return Hp > 0;
         }
+        
         public override string ToString(){
             return "Entity";
         }

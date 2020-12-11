@@ -58,7 +58,6 @@ namespace Game.Data.Global
                 Visual = Visual.Insert(firstX, " ");
             }
         }
-        
         public static string AllNpcsToString(){
             var result = "";
             foreach(var e in Npcs){
@@ -66,6 +65,11 @@ namespace Game.Data.Global
                 result += " - ";
             }
             return result;
+        }
+        public static List<Tuple<ConsoleColor, string>> FightLog = new List<Tuple<ConsoleColor, string>>(){};
+
+        public static void Log(ConsoleColor color, string msg){
+            DungeonData.FightLog.Add(new Tuple<ConsoleColor, string>(color, msg));
         }
 
     }
