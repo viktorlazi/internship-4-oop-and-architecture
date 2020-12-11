@@ -8,7 +8,7 @@ namespace Game.Data.Global
         public static int WarriorDmg {get;set;}= 6;
 
         public static int RangerHp {get;set;}= 100;
-        public static int RangerDmg {get;set;}= 9;
+        public static int RangerDmg {get;set;}= 999;
         public static int RangerCritDmg {get;set;}= RangerDmg+4;
         public static int RangerCritChance {get;set;}= 30;
         public static int RangerStunChance {get;set;}= 10;

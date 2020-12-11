@@ -11,6 +11,7 @@ namespace Game.Domain.GameCycle{
             Entity opponent = DungeonData.NextAliveNpc();
             if(opponent == null){
                 End.GameEnded = true;
+                End.Won = true;
                 return;
             }
             Player player = PlayerData.Player1;
@@ -118,11 +119,17 @@ namespace Game.Domain.GameCycle{
             //DungeonData.Npcs.RemoveAt(0); //probably should stay in a list even if he's dead
             p.GrantXp(enemy.Xp);
             DungeonData.RemoveFirstEnemyVisual();
-            DungeonData.EnemyLines.RemoveAt(0);
+            if(DungeonData.EnemyLines.Count > 0){
+                DungeonData.EnemyLines.RemoveAt(0);
+            }else{
+                End.Won = true;
+                End.GameEnded = true;
+            }
             p.RegenerateAfterFight();
         }
         static void LoseFight(){
             End.GameEnded = true;
+            End.Won = false;
         }
     }
 }

@@ -8,7 +8,6 @@ namespace Game.Data.Models.Entity
         public Player(){
             Xp = 0;
             Level = 1;
-            XpToNextLevel = DefaultStartValues.XpForLevel[2];
         }
         public virtual void RegenerateAfterFight(){
             Hp+=(int)(MaxHp*0.25);

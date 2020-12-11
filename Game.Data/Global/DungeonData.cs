@@ -32,7 +32,7 @@ namespace Game.Data.Global
         "##      &&% #\n"+
         "#$$ X  %%%% #\n"+
         "# #     ##&/#\n"+
-        "#    X      #\n"+
+        "#### X      #\n"+
         "#     $$%   #\n"+
         "#  X    ###$#\n"+
         "#           #\n"+
@@ -52,9 +52,11 @@ namespace Game.Data.Global
         "########## ##\n"
         );
         public static void RemoveFirstEnemyVisual(){
-            var firstX = DungeonData.Visual.IndexOf('X');
-            Visual = Visual.Remove(firstX, 1);
-            Visual = Visual.Insert(firstX, " ");
+            var firstX = DungeonData.Visual.IndexOf('X',EnemyLines[0]*14,14);
+            if(firstX != -1){
+                Visual = Visual.Remove(firstX, 1);
+                Visual = Visual.Insert(firstX, " ");
+            }
         }
         
         public static string AllNpcsToString(){

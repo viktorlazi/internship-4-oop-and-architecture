@@ -7,9 +7,9 @@ namespace Game.Data.Models.Entity
     public class Npc : Entity
     {  
            
-        public override List<Tuple<string, ConsoleColor, int>> Stats(){
-            List<Tuple<string, ConsoleColor, int>> baseStats = base.Stats();
-            baseStats.Remove(new Tuple<string, ConsoleColor, int>("Xp", System.ConsoleColor.White, Xp));
+        public override List<Tuple<string, ConsoleColor, string>> Stats(){
+            List<Tuple<string, ConsoleColor, string>> baseStats = base.Stats();
+            baseStats.Remove(new Tuple<string, ConsoleColor, string>("Xp", ConsoleColor.White, Xp.ToString() + "/" + XpToNextLevel.ToString()));
             return baseStats;            
         }
     

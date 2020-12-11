@@ -14,7 +14,7 @@ namespace Game.Data.Models.Entity.PlayerClass
         }
         
         public int Mana {get;set;}
-        public int MaxMana{get;set;} // ovo posli, vidi class Entity
+        public int MaxMana{get;set;}
         public bool Has2Lifes {get;set;} = true;
 
         public static string PrintPowers(){
@@ -27,9 +27,9 @@ namespace Game.Data.Models.Entity.PlayerClass
         {
             return "Mage";
         }
-        public override List<Tuple<string, ConsoleColor, int>> Stats(){
+        public override List<Tuple<string, ConsoleColor, string>> Stats(){
             var Stats = base.Stats();
-            Stats.Add(new Tuple<string, ConsoleColor, int>("Mana", System.ConsoleColor.Blue, Mana));
+            Stats.Add(new Tuple<string, ConsoleColor, string>("Mana", System.ConsoleColor.Blue, Mana.ToString() + "/" + MaxMana));
 
             return Stats;
         }

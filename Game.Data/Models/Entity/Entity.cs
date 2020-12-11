@@ -1,11 +1,15 @@
 using System;
 using System.Collections.Generic;
+using Game.Data.Global;
 namespace Game.Data.Models.Entity
 {
     public class Entity
     {      
+        public Entity(){
+            XpToNextLevel = DefaultStartValues.XpForLevel[2];
+        }
         public int Hp {get;set;}
-        public int MaxHp{get;set;} // dodat u buducnosti nedamisesad, triba bit "HP: Hp/MaxHp"
+        public int MaxHp{get;set;}
         public int Damage {get;set;}        
         public int Xp {get;set;}
         public int XpToNextLevel {get;set;}        
@@ -17,12 +21,12 @@ namespace Game.Data.Models.Entity
         public virtual int Attack(){
             return 0;
         }
-        public virtual List<Tuple<string, ConsoleColor, int>> Stats(){
-            return new List<Tuple<string, ConsoleColor, int>>(){
-                new Tuple<string, ConsoleColor, int>("Xp", ConsoleColor.White, Xp),
-                new Tuple<string, ConsoleColor, int>("Level", ConsoleColor.White, Level),
-                new Tuple<string, ConsoleColor, int>("Hp", ConsoleColor.Red, Hp),
-                new Tuple<string, ConsoleColor, int>("Damage", ConsoleColor.Yellow, Damage)
+        public virtual List<Tuple<string, ConsoleColor, string>> Stats(){
+            return new List<Tuple<string, ConsoleColor, string>>(){
+                new Tuple<string, ConsoleColor, string>("Xp", ConsoleColor.White, Xp.ToString() + "/" + XpToNextLevel.ToString()),
+                new Tuple<string, ConsoleColor, string>("Level", ConsoleColor.White, Level.ToString()),
+                new Tuple<string, ConsoleColor, string>("Hp", ConsoleColor.Red, Hp.ToString() + "/" + MaxHp.ToString()),
+                new Tuple<string, ConsoleColor, string>("Damage", ConsoleColor.Yellow, Damage.ToString())
             };
         }
         public virtual int Hit(Entity enemy){
@@ -48,6 +52,7 @@ namespace Game.Data.Models.Entity
         public bool LevelUp(){
             if(Xp >= XpToNextLevel){
                 Level++;
+                XpToNextLevel = DefaultStartValues.XpForLevel[Level+1];
                 return true;
             }
             return false;
