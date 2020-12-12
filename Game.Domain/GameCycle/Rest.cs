@@ -22,8 +22,6 @@ namespace Game.Domain.GameCycle{
                 DisplayText.ColorLine("2. Turn xp to health", ConsoleColor.Green);
                 DisplayText.ColorLine("3. See fight log", ConsoleColor.White);
             }while(!GetChoice());
-            
-            UserInput.EnterToContinue();
         }
         
         static bool GetChoice(){
