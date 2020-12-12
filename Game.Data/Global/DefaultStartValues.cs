@@ -9,7 +9,7 @@ namespace Game.Data.Global
 
         public static int RangerHp {get;set;}= 100;
         public static int RangerDmg {get;set;}= 7;
-        public static int RangerCritDmg {get;set;}= RangerDmg+4;
+        public static int RangerCritDmg {get;set;}= 4; //plus rangerDmg
         public static int RangerCritChance {get;set;}= 30;
         public static int RangerStunChance {get;set;}= 10;
         
@@ -28,17 +28,17 @@ namespace Game.Data.Global
 
         public static int BruteHp {get;set;}= 80;
         public static int BruteDmg {get;set;}= 7;
-        public static int BruteSlamChance {get;set;}= 20;
-        public static int BruteSlamDmg {get;set;}= 20;
+        public static int BruteSlamChance {get;set;}= 10;
+        public static int BruteSlamDmg {get;set;}= 20; //posto zivota igraca
         public static int BruteXp {get;set;}= 45;
 
 
         // summ must be equal to 100
-        public static int GoblinSpawnChance {get;set;}= 65; //per cent
-        public static int WitchSpawnChance {get;set;}= 25;
-        public static int BruteSpawnChance {get;set;}= 10;
+        public static int GoblinSpawnChance {get;set;}= 65; //posto
+        public static int WitchSpawnChance {get;set;}= 10;
+        public static int BruteSpawnChance {get;set;}= 25;
         
-        public static Dictionary<Enum.Npc, int> SpawnChances {get;set;}= new Dictionary<Enum.Npc, int>(){
+        public static Dictionary<Enum.Npc, int> SpawnChances {get;set;}= new Dictionary<Enum.Npc, int>(){//touch only if you add more npc classes
             {Enum.Npc.Goblin, GoblinSpawnChance},
             {Enum.Npc.Brute, BruteSpawnChance},
             {Enum.Npc.Witch, WitchSpawnChance} 

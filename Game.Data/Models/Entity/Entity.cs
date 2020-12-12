@@ -6,6 +6,7 @@ namespace Game.Data.Models.Entity
     public class Entity
     {      
         public Entity(){
+            Level = 1;
             XpToNextLevel = DefaultStartValues.XpForLevel[2];
         }
         public int Hp {get;set;}
@@ -41,20 +42,19 @@ namespace Game.Data.Models.Entity
 
         public int RandomizeDamage(){
             var random = new Random();
-            int randomAttack = random.Next(-1 + (int)(-Damage*0.2), 1 + (int)(-Damage*0.2));
+            int randomAttack = random.Next(-1 + (int)(-Damage*0.2), 1 + (int)(Damage*0.2));
             return randomAttack;
         }
 
-        public void GrantXp(int xp){
+        public bool GrantXp(int xp){
             Xp += xp;
-            this.LevelUp();
+            return LevelUp();
         }
         public bool LevelUp(){
             if(Xp >= XpToNextLevel){
                 Level++;
                 XpToNextLevel = DefaultStartValues.XpForLevel[Level+1];
                 UpdateStatsForLevelUp();
-                System.Console.WriteLine("You leveled up! +20% to your stats");
                 return true;
             }
             return false;

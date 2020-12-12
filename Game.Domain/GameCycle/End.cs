@@ -9,6 +9,7 @@ namespace Game.Domain.GameCycle{
         public static void Screen(){
             if(Won){
                 System.Console.WriteLine("You win!");
+                GameEnded=true;
             }else{
                 System.Console.WriteLine("You lost!");
                 System.Console.WriteLine("Try again?");

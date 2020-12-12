@@ -18,7 +18,16 @@ namespace Game.Data.Global
             }
             return null;
         }
-
+        public static int GetNumberOfDeadNpcs(){
+            var i = 0;
+            foreach(var npc in Npcs){
+                if(!npc.IsAlive()){
+                    i++;
+                }
+            }
+            return i;
+        }
+        
         public static List<int> EnemyLines = new List<int> (){
             4,6,8,10,12,14,16,18,20,22
         };

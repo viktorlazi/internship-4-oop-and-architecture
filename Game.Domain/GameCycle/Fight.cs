@@ -4,14 +4,13 @@ using Game.Domain.Helper;
 using Game.Data.Models.Entity;
 using Game.Data.Global;
 using Game.Data.Models.Entity.PlayerClass;
-using Game;
 using Game.Data.Models.Entity.NpcClass;
 namespace Game.Domain.GameCycle{
     public static class Fight{
         public static void Screen(){
             Entity opponent = DungeonData.NextAliveNpc();
             DungeonData.NewFightLog("\n");
-            DungeonData.NewFightLog("New fight: " + opponent.ToString());
+            DungeonData.NewFightLog("Fight (" + (DungeonData.GetNumberOfDeadNpcs()+1) + "): " + opponent.ToString());
             if(opponent == null){
                 End.GameEnded = true;
                 End.Won = true;
@@ -118,12 +117,12 @@ namespace Game.Domain.GameCycle{
                 }else{
                     var dmg = p.Hit(enemy);
                     DisplayText.ColorLine("You crush your enemy dealing " + dmg+ " damage.", ConsoleColor.Green);
-                    DungeonData.Log(ConsoleColor.Green, "You hit " + enemy.ToString() + " for " + dmg + "\t\t\t\t" + p.Hp + " | " + enemy.Hp);
+                    DungeonData.Log(ConsoleColor.Green, "You hit " + enemy.ToString() + " for " + dmg + "\t\t\t\t\t" + p.Hp + " | " + enemy.Hp);
                 }
             }else{
                 var dmg = p.Hit(enemy);
                 DisplayText.ColorLine("You crush your enemy dealing " + dmg + " damage.", ConsoleColor.Green);
-                DungeonData.Log(ConsoleColor.Green, "You hit " + enemy.ToString() + " for " + dmg + "\t\t\t\t" + p.Hp + " | " + enemy.Hp);
+                DungeonData.Log(ConsoleColor.Green, "You hit " + enemy.ToString() + " for " + dmg + "\t\t\t\t\t" + p.Hp + " | " + enemy.Hp);
             }
         }
         static void Defend(Player p, Entity enemy){
@@ -135,17 +134,23 @@ namespace Game.Domain.GameCycle{
             DungeonData.Log(ConsoleColor.Red, "You get hit by " + enemy.ToString() + " for " + dmg + "\t\t\t\t" + p.Hp + " | " + enemy.Hp);
         }       
         static void WinFight(Player p, Entity enemy){
-            p.GrantXp(enemy.Xp);
+            if(p.GrantXp(enemy.Xp)){
+                System.Console.WriteLine("You leveled up! +20% max stats");
+                UserInput.EnterToContinue();
+            }
             p.RegenerateAfterFight();
             if(enemy is Witch){
                 SideEnemies(enemy);
             }
             DungeonData.RemoveFirstEnemyVisual();
-            if(DungeonData.EnemyLines.Count > 0){
+            if(DungeonData.EnemyLines!=null){
                 DungeonData.EnemyLines.RemoveAt(0);
-            }else{
+            }
+            if(DungeonData.NextAliveNpc() == null){
                 End.Won = true;
                 End.GameEnded = true;
+                UserInput.EnterToContinue();
+                return;
             }
         }
         static void LoseFight(){

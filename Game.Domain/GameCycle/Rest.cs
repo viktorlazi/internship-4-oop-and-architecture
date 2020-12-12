@@ -7,7 +7,6 @@ using Game.Data.Models.Entity;
 namespace Game.Domain.GameCycle{
     public static class Rest{
         public static void Screen(){
-
             do{
                 Console.Clear();
                 DisplayText.DashWall();
@@ -17,10 +16,11 @@ namespace Game.Domain.GameCycle{
                 System.Console.WriteLine("Your enemies: ");
                 DisplayText.EnemiesInOrder(DungeonData.Npcs);
                 DisplayText.DashWall();
+
                 
                 DisplayText.ColorLine("1. Go fight", ConsoleColor.Yellow);
                 DisplayText.ColorLine("2. Turn xp to health", ConsoleColor.Green);
-                DisplayText.ColorLine("3. See last fight log", ConsoleColor.White);
+                DisplayText.ColorLine("3. See fight log", ConsoleColor.White);
             }while(!GetChoice());
             
             UserInput.EnterToContinue();

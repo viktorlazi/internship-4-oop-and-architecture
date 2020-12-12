@@ -39,6 +39,7 @@ namespace Game.Data.Models.Entity.PlayerClass
             int amount = Damage + RandomizeDamage();
             if(Mana > amount){
                 Mana -= amount;
+                enemy.GetHit(amount);
                 return amount;
             }else{
                 System.Console.WriteLine("Mana low, increasing next turn");

@@ -5,6 +5,11 @@ namespace Game.Presentation
 {
     class Program
     {
+
+        /*
+            todo:
+            -add npc levels
+        */
         static void Main(string[] args)
         {
             while(!End.GameEnded){
