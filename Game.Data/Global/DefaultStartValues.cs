@@ -24,7 +24,7 @@ namespace Game.Data.Global
         public static int WitchHp {get;set;}= 60;
         public static int WitchDmg {get;set;}= 7;
         public static int WitchXp {get;set;}= 80;
-        public static int WitchDjumbusChance{get;set;} = 100;
+        public static int WitchDjumbusChance{get;set;} = 8;
 
         public static int BruteHp {get;set;}= 80;
         public static int BruteDmg {get;set;}= 7;
@@ -34,9 +34,9 @@ namespace Game.Data.Global
 
 
         // summ must be equal to 100
-        public static int GoblinSpawnChance {get;set;}= 0; //per cent
-        public static int WitchSpawnChance {get;set;}= 100;
-        public static int BruteSpawnChance {get;set;}= 0;
+        public static int GoblinSpawnChance {get;set;}= 65; //per cent
+        public static int WitchSpawnChance {get;set;}= 25;
+        public static int BruteSpawnChance {get;set;}= 10;
         
         public static Dictionary<Enum.Npc, int> SpawnChances {get;set;}= new Dictionary<Enum.Npc, int>(){
             {Enum.Npc.Goblin, GoblinSpawnChance},

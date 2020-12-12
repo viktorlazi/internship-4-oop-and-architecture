@@ -18,7 +18,7 @@ namespace Game.Domain.GameCycle{
                 DisplayText.EnemiesInOrder(DungeonData.Npcs);
                 DisplayText.DashWall();
                 
-                DisplayText.ColorLine("1. Continue fighting", ConsoleColor.Yellow);
+                DisplayText.ColorLine("1. Go fight", ConsoleColor.Yellow);
                 DisplayText.ColorLine("2. Turn xp to health", ConsoleColor.Green);
                 DisplayText.ColorLine("3. See last fight log", ConsoleColor.White);
             }while(!GetChoice());
@@ -61,6 +61,7 @@ namespace Game.Domain.GameCycle{
         }
 
         static void FightLog(){
+            Console.Clear();
             if(DungeonData.FightLog.Count > 0){
                 foreach(var log in DungeonData.FightLog){
                     DisplayText.ColorLine(log.Item2, log.Item1);

@@ -53,9 +53,15 @@ namespace Game.Data.Models.Entity
             if(Xp >= XpToNextLevel){
                 Level++;
                 XpToNextLevel = DefaultStartValues.XpForLevel[Level+1];
+                UpdateStatsForLevelUp();
+                System.Console.WriteLine("You leveled up! +20% to your stats");
                 return true;
             }
             return false;
+        }
+        protected virtual void UpdateStatsForLevelUp(){
+            MaxHp += (int)(MaxHp*0.2);
+            Damage += (int)(Damage*0.2);
         }
         public bool IsAlive(){
             return Hp > 0;

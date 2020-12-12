@@ -36,13 +36,20 @@ namespace Game.Data.Models.Entity.PlayerClass
         }
 
         public override int Hit(Entity enemy){
-            int amount = base.Hit(enemy);
-            Mana -= amount;
-            return amount;
+            int amount = Damage + RandomizeDamage();
+            if(Mana > amount){
+                Mana -= amount;
+                return amount;
+            }else{
+                System.Console.WriteLine("Mana low, increasing next turn");
+                Mana += (int)(MaxMana/10);
+                return 0;
+            }
         }
         public override void RegenerateAfterFight(){
             base.RegenerateAfterFight();
-            Mana+=MaxMana;
+            Mana+=(int)(MaxMana/5);
+            if(Mana > MaxMana){Mana=MaxMana;}
         }
         public bool Ressurect(){
             if(Has2Lifes){
@@ -52,6 +59,11 @@ namespace Game.Data.Models.Entity.PlayerClass
             }else{
                 return false;
             }
+        }
+        protected override void UpdateStatsForLevelUp()
+        {
+            base.UpdateStatsForLevelUp();
+            MaxMana+=(int)(MaxMana*0.2);
         }
     }
 }

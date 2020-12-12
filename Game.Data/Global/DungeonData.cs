@@ -51,6 +51,35 @@ namespace Game.Data.Global
         "##########X##\n"+
         "########## ##\n"
         );
+        public static void ResetVisual(){
+            Visual = new String(
+            //14x24
+            "#############\n"+
+            "#     $     #\n"+
+            "#     $$$$$$#\n"+
+            "##      &&% #\n"+
+            "#$$ X  %%%% #\n"+
+            "# #     ##&/#\n"+
+            "#### X      #\n"+
+            "#     $$%   #\n"+
+            "#  X    ###$#\n"+
+            "#           #\n"+
+            "#$$%%$%  X  #\n"+
+            "#  $%%$%    #\n"+
+            "#     %  X  #\n"+
+            "#    ##%    #\n"+
+            "#     ##  X #\n"+
+            "#    ####   #\n"+
+            "#         X #\n"+
+            "#  %%%$%    #\n"+
+            "# X #$%$#$$$#\n"+
+            "#      %%%% #\n"+
+            "##$$  X     #\n"+
+            "# $$        #\n"+
+            "##########X##\n"+
+            "########## ##\n"
+            );
+        }
         public static void RemoveFirstEnemyVisual(){
             var firstX = DungeonData.Visual.IndexOf('X',EnemyLines[0]*14,14);
             if(firstX != -1){
@@ -71,6 +100,8 @@ namespace Game.Data.Global
         public static void Log(ConsoleColor color, string msg){
             DungeonData.FightLog.Add(new Tuple<ConsoleColor, string>(color, msg));
         }
-
+        public static void NewFightLog(string msg){
+            DungeonData.FightLog.Add(new Tuple<ConsoleColor, string>(ConsoleColor.White, msg));
+        }
     }
 }

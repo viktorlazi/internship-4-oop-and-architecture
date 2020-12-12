@@ -9,8 +9,9 @@ using Game.Data.Models.Entity.NpcClass;
 namespace Game.Domain.GameCycle{
     public static class Fight{
         public static void Screen(){
-            DungeonData.FightLog.Clear();
             Entity opponent = DungeonData.NextAliveNpc();
+            DungeonData.NewFightLog("\n");
+            DungeonData.NewFightLog("New fight: " + opponent.ToString());
             if(opponent == null){
                 End.GameEnded = true;
                 End.Won = true;
@@ -24,7 +25,7 @@ namespace Game.Domain.GameCycle{
                     if(player is Mage){
                         if(((Mage)player).Has2Lifes){
                             ((Mage)player).Ressurect();
-                            DisplayText.ColorLine("But you ressurected, jebe se tebe.", ConsoleColor.Green);
+                            DisplayText.ColorLine("But you ressurected. 50% HP returned", ConsoleColor.Green);
                         }else{
                             DisplayText.ColorLine("Again... Dissapointment.", ConsoleColor.Blue);
                             LoseFight();
@@ -71,6 +72,7 @@ namespace Game.Domain.GameCycle{
             }
             if(opponent.Stunned){
                 DisplayText.ColorLine("You stunned your enemy, so you get to attack again", ConsoleColor.Green);
+                opponent.Stunned=false;
                 return true;
             }
 
@@ -134,6 +136,10 @@ namespace Game.Domain.GameCycle{
         }       
         static void WinFight(Player p, Entity enemy){
             p.GrantXp(enemy.Xp);
+            p.RegenerateAfterFight();
+            if(enemy is Witch){
+                SideEnemies(enemy);
+            }
             DungeonData.RemoveFirstEnemyVisual();
             if(DungeonData.EnemyLines.Count > 0){
                 DungeonData.EnemyLines.RemoveAt(0);
@@ -141,11 +147,19 @@ namespace Game.Domain.GameCycle{
                 End.Won = true;
                 End.GameEnded = true;
             }
-            p.RegenerateAfterFight();
         }
         static void LoseFight(){
             End.GameEnded = true;
             End.Won = false;
         }
+        static void SideEnemies(Entity enemy){
+            List<Entity> sideEnemies = ((Witch)enemy).SpawnFriends();
+            foreach(var e in sideEnemies){
+                DungeonData.EnemyLines.Insert(0, DungeonData.EnemyLines[0]);
+                DungeonData.Npcs.Insert(DungeonData.Npcs.IndexOf((Npc)enemy) + 1, (Npc)e);
+            }
+            System.Console.WriteLine("A brute and a goblin rise from the witch dead body! You will have to defeat them before moving on to other enemies");
+            UserInput.EnterToContinue();
+        }   
     }
 }

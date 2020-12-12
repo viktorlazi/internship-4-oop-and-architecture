@@ -14,6 +14,7 @@ namespace Game.Domain.GameCycle{
                 System.Console.WriteLine("Try again?");
                 if(UserInput.AreYouSure()){
                     DungeonData.Npcs.Clear();
+                    DungeonData.ResetVisual();
                     GameEnded = false;
                 }
             }

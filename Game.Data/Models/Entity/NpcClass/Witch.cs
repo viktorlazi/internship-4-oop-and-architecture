@@ -38,7 +38,12 @@ namespace Game.Data.Models.Entity.NpcClass
             random = new Random();
             randomNumber = random.Next(10,100);
             Hp = (int)((Hp*randomNumber)/100);
-            System.Console.WriteLine("Đumbus!");
+            System.Console.WriteLine("Đumbus! Everyone's hp got affected");
+        }
+        public List<Entity> SpawnFriends(){
+            return new List<Entity>(){
+                new Goblin(),new Brute()
+            };
         }
 
         public override string ToString()
