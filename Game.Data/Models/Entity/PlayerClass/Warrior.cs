@@ -19,7 +19,7 @@ namespace Game.Data.Models.Entity.PlayerClass
         }
 
         public static string PrintPowers(){
-            return "Power of warrior is the power of strenght and ferocity.\n" +
+            return "Power of warrior is the power of indurance and ferocity.\n" +
                 "\t-Extra HP, but less damage\n" +
                 "\t-Special ability: Charge, double damage on cost of 10% HP";                
         }       

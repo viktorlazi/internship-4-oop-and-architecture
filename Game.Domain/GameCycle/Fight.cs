@@ -113,7 +113,7 @@ namespace Game.Domain.GameCycle{
                 if(Console.ReadLine() == "charge"){
                     var dmg = ((Warrior)p).Charge(enemy);
                     DisplayText.ColorLine("You charge your enemy with " + dmg + " damage at the cost of 10% HP", ConsoleColor.Yellow);
-                    DungeonData.Log(ConsoleColor.Green, "You charge " + enemy.ToString() + " for " + dmg + " and lose 10% hp \t\t\t\t" + p.Hp + " | " + enemy.Hp);
+                    DungeonData.Log(ConsoleColor.Green, "You charge " + enemy.ToString() + " for " + dmg + " and lose 10% hp \t\t" + p.Hp + " | " + enemy.Hp);
                 }else{
                     var dmg = p.Hit(enemy);
                     DisplayText.ColorLine("You crush your enemy dealing " + dmg+ " damage.", ConsoleColor.Green);
